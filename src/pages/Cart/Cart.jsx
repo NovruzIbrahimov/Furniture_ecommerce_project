@@ -3,30 +3,23 @@
 import React, { useEffect, useState } from "react";
 import "../Cart/cart.css";
 import { Table } from "react-bootstrap";
-import { BsX } from 'react-icons/bs';
+import { BsX } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, removeItem, updateQuantity } from "../../redux/slice/cartSlice";
+import {clearCart,removeItem,updateQuantity,} from "../../redux/slice/cartSlice";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 
-
 function Cart() {
-
-  
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
-
-  
-
   const createOrder = async (values) => {
-    
     const transformedData = {
-      products: cartItems.map(product => ({
+      products: cartItems.map((product) => ({
         productId: product.id,
-        productCount: product.quantity // You can adjust this count based on your requirements
-      }))
+        productCount: product.quantity,
+      })),
     };
 
     if (!token) {
@@ -39,7 +32,7 @@ function Cart() {
       const response = await axios.post(
         "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/site/orders",
         {
-          products: transformedData.products
+          products: transformedData.products,
         },
         {
           headers: {
@@ -56,10 +49,8 @@ function Cart() {
     }
   };
 
-
-  
   const dispatch = useDispatch();
-  const cartItems = useSelector(state => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.items);
 
   const handleIncrement = (id) => {
     dispatch(updateQuantity({ id, quantity: 1 }));
@@ -73,7 +64,6 @@ function Cart() {
     dispatch(removeItem({ id }));
   };
 
-
   const calculateSubtotal = () => {
     return cartItems.reduce((sum, item) => {
       const itemPrice = parseFloat(item.price);
@@ -86,7 +76,6 @@ function Cart() {
       }
     }, 0);
   };
-
 
   const calculateTotal = () => {
     return cartItems.reduce((sum, item) => {
@@ -104,9 +93,7 @@ function Cart() {
     <div className="cart-section">
       <div className="container mt-5 mb-4">
         <div className="row">
-          
           <div className="col-lg-8 col-md-6 col-sm-12">
-          
             <Table responsive="sm" className="table">
               <thead>
                 <tr>
@@ -120,36 +107,47 @@ function Cart() {
                 </tr>
               </thead>
               <tbody className="body-text">
-              {cartItems.map(item => (
-                <tr className="tr-text" key={item.id}>
-                  <td></td>
-                  <td className="product-td-image">
-                    <img src={item.image} alt="" />
-                  </td>
-                  <td className="product-td">
-                    <p>{item.title}</p>
-                  </td>
-                  <td className="product-td">
-                    <span>${item.price}</span>
-                  </td>
-                  <td className="product-td">
-                    <div className="d-flex  align-items-center">
-                      <button className="btn" onClick={() => handleDecrement(item.id)}>
-                        -
-                      </button>
-                      <span>{item.quantity}</span>
-                      <button className="btn" onClick={() => handleIncrement(item.id)}>
-                        +
-                      </button>
-                    </div>
-                  </td>
-                  <td className="product-td">
-                    <span>${item.price * item.quantity}</span>
-                  </td>
-                  <td className="product-td">
-                    <i className="bsx-icon" onClick={() => handleRemoveItem(item.id)}><BsX/></i>
-                  </td>
-                </tr>
+                {cartItems.map((item) => (
+                  <tr className="tr-text" key={item.id}>
+                    <td></td>
+                    <td className="product-td-image">
+                      <img src={item.image} alt="" />
+                    </td>
+                    <td className="product-td">
+                      <p>{item.title}</p>
+                    </td>
+                    <td className="product-td">
+                      <span>${item.price}</span>
+                    </td>
+                    <td className="product-td">
+                      <div className="d-flex  align-items-center">
+                        <button
+                          className="btn"
+                          onClick={() => handleDecrement(item.id)}
+                        >
+                          -
+                        </button>
+                        <span>{item.quantity}</span>
+                        <button
+                          className="btn"
+                          onClick={() => handleIncrement(item.id)}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </td>
+                    <td className="product-td">
+                      <span>${item.price * item.quantity}</span>
+                    </td>
+                    <td className="product-td">
+                      <i
+                        className="bsx-icon"
+                        onClick={() => handleRemoveItem(item.id)}
+                      >
+                        <BsX />
+                      </i>
+                    </td>
+                  </tr>
                 ))}
               </tbody>
             </Table>
@@ -167,7 +165,6 @@ function Cart() {
                 </tr>
               </thead>
               <tbody>
-              
                 <tr>
                   <td></td>
                   <td className="product-td-product">Subtotal</td>
@@ -199,12 +196,10 @@ function Cart() {
                       className="checkout"
                       style={{ marginTop: "50px", textAlign: "center" }}
                     >
-                      
                       <button onClick={() => createOrder()}>CHECKOUT</button>
                     </div>
                   </td>
                 </tr>
-              
               </tbody>
             </Table>
           </div>

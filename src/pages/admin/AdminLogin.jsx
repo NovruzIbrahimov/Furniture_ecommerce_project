@@ -13,6 +13,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  //------------------------------------------------AXIOS POST METODU--------------------------------------
   const handleLogin = async () => {
     try {
       console.log("here login")
@@ -31,7 +32,7 @@ const Login = () => {
         navigate('/dashboard');
       }
       else {
-        message.error('Sizin istifadəçi user üçün nəzərdə tutulub.');
+        message.error('Your user is intended for user.');
       }
   
       } catch (error) {

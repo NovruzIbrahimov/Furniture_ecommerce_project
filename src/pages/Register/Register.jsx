@@ -13,6 +13,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  //-----------------------------------------------AXIOS POST METODU------------------------------------------
   const handleRegistration = async () => {
     try {
       const response = await axios.post(
@@ -93,9 +94,6 @@ function Register() {
               Register
             </button>
           </div>
-          {/* <p className='text-right'>
-          Already Registered? <Link to="/login" className='ms-2'>Login</Link>
-        </p> */}
         </form>
       </div>
     </div>

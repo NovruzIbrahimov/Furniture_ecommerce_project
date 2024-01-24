@@ -13,6 +13,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  //-------------------------------------------AXIOS POST METODU--------------------------------------------
   const handleLogin = async () => {
     try {
       const response = await axios.post(
@@ -89,9 +90,6 @@ function Login() {
               Login
             </button>
           </div>
-          {/* <p className='text-right'>
-          Forgot <a href="">Password?</a><Link to="/register" className='ms-2 text-decoration-none'>Register</Link>
-        </p> */}
         </form>
       </div>
     </div>

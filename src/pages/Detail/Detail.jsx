@@ -16,7 +16,6 @@ function Detail() {
   const [quantity, setQuantity] = useState(1);
   const { _id } = useParams();
   const [products, setProducts] = useState(null);
-
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -44,6 +43,7 @@ function Detail() {
     }
   };
 
+  //--------------------------------------AXIOS GET METODU------------------------------------------
   useEffect(() => {
     const fetchData = async () => {
       try {

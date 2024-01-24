@@ -31,31 +31,66 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
       <ul className="sidebar-list">
         <li className="sidebar-list-item">
-          <Link to="/dashboard" style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <Link
+            to="/dashboard"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <BsGrid1X2Fill style={{ color: "#fff" }} />
             <h3>Dashboard</h3>
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link to="/dashboard/dashboardProducts" style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <Link
+            to="/dashboard/dashboardProducts"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <BsFillArchiveFill style={{ color: "#fff" }} />
             <h3>Products</h3>
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link to="/dashboard/dashboardCategories" style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <Link
+            to="/dashboard/dashboardCategories"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <BsFillGrid3X3GapFill style={{ color: "#fff" }} />
             <h3>Categories</h3>
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link to="/dashboard/dashboardAdmins" style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <Link
+            to="/dashboard/dashboardAdmins"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <BsPeopleFill style={{ color: "#fff", fontSize: "22px" }} />
             <h3>Admins</h3>
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link to="/dashboard/dashboardOrders" style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <Link
+            to="/dashboard/dashboardOrders"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <FaRegCompass style={{ color: "#fff", fontSize: "22px" }} />
             <h3>Orders</h3>
           </Link>

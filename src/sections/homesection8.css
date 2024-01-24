@@ -1,0 +1,46 @@
+/* .homesection8-left{
+    background-image: url('https://websitedemos.net/home-decor-04/wp-content/uploads/sites/644/2020/08/newsletter-banner-img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+/* .homesection8 .row{
+    width: 1370px;
+}
+.homesection8-left{
+    width: 800px;
+} */
+/* .homesection8-left-content{
+    width: 800px;
+} */
+/* .homesection8-left-content img{
+    width: 100%;
+    object-fit: contain;
+} */
+/* .homesection8-right{
+    width: 570px;
+} */
+.homesection8-right-content{
+    /* width: 570px; */
+    padding: 30px 0 0 50px;
+}
+.homesection8-right-content span{
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #BC9127;
+}
+.homesection8-right-content h2{
+    font-size: 38px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.homesection8-right-content p{
+    font-size: 18px;
+    color: #6c6c6c;
+}
+#basic-addon2{
+    background-color: #EDB932;
+    color: #FFFFFF;
+}

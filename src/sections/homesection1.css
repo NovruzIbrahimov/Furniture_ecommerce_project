@@ -1,0 +1,42 @@
+.homesection1{
+    padding: 30px 80px 30px 80px;
+    background-image: url('https://websitedemos.net/home-decor-04/wp-content/uploads/sites/644/2020/08/furniture-store-hero-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 950px;
+    width: 100%;
+}
+.homesection-text{
+    margin: 92px 0 60px 0;
+}
+.homesection-text span{
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #EDB932;
+}
+.homesection-text h1{
+    font-size: 58px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fafafa;
+    margin-top: 40px;
+}
+.homesection-text p{
+    font-size: 21px;
+    color: #fafafa;
+    margin: 30px 0 60px 0;
+}
+.homesection-text a{
+    padding: 14px 38px 14px 38px;
+    text-decoration: none;
+    background-color: #EDB932;
+    border: 1px solid #EDB932;
+    color: #000000;
+    font-weight: bold;
+    transition: .3s;
+}
+.homesection-text a:hover{
+    background-color: #fafafa;
+    color: #000000;
+    border: 1px solid #fafafa;
+}

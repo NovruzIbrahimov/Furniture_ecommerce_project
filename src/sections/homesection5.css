@@ -1,0 +1,138 @@
+.homesection5-top {
+  padding: 30px 80px 30px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.homesection5-top h2 {
+  font-size: 50px;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+.homesection5-top a {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0px 20px 0px 20px;
+  border: 1px solid #edb932;
+  background-color: #edb932;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+.card {
+  margin-bottom: 18px;
+  cursor: pointer;
+  text-align: center; /* Center the content within the card */
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.card-body p.single-line11 {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #6c6c6c;
+}
+.card-body h2.single-line22 {
+  font-size: 21px;
+  color: #bc9127;
+  font-weight: bold;
+}
+
+.card-body span {
+  font-size: 19px;
+  color: #6c6c6c;
+}
+
+.icons-container {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  padding: 10px;
+  display: none;
+}
+.card:hover .icons-container {
+  display: flex;
+  flex-direction: column;
+}
+.icon {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* .card {
+  margin-bottom: 18px;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.card-body p.single-line1 {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #6c6c6c;
+}
+.card-body h2.single-line {
+  font-size: 21px;
+  color: #bc9127;
+  font-weight: bold;
+}
+
+.card-body span {
+  font-size: 19px;
+  color: #6c6c6c;
+} */

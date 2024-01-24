@@ -1,0 +1,20 @@
+.dashboardOrders-top {
+  padding: 30px 0 30px 0;
+}
+.dashboardOrders-top-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashboardOrders-middle {
+  padding: 30px 0 30px 0;
+}
+.dashboardOrders-middle-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.delivery-icon{
+  font-size: 25px;
+  color: red;
+}

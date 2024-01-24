@@ -1,0 +1,53 @@
+.detail{
+    padding: 60px 0 40px 0;
+}
+
+.detail h1{
+    font-size: 50px;
+    color: #1a1a1a;
+}
+.detail h2{
+    color: #6c6c6c;
+}
+.detail p{
+    color: #6c6c6c;
+}
+.btn {
+  color: #ccc;
+  border-color: #EDB932;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #EDB932;
+  border-color: #EDB932;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #EDB932;
+  padding: 10px 40px;
+  border-color: #EDB932;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #EDB932;
+  border-color: #EDB932;
+}
+.description-content h3{
+  color: #1a1a1a;
+}
+button#uncontrolled-tab-example-tab-review.nav-link{
+  color: #1a1a1a;
+  font-weight: bold;
+}
+button#uncontrolled-tab-example-tab-description.nav-link{
+  color: #1a1a1a;
+  font-weight: bold;
+}
+.review-content h2{
+  font-size: 28px;
+}
+
+

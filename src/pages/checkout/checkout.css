@@ -1,0 +1,58 @@
+input[name="usernameEmail"].form-control {
+  box-shadow: none;
+}
+input[name="firstName"].form-control {
+  box-shadow: none;
+}
+input[name="lastName"].form-control {
+  box-shadow: none;
+}
+input[name="companyName"].form-control {
+  box-shadow: none;
+}
+select[name="country"].form-control {
+  box-shadow: none;
+}
+input[name="phone"].form-control {
+  box-shadow: none;
+}
+input[name="additionalInfo"].form-control {
+  box-shadow: none;
+}
+.info-second-left {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.info-second-left img {
+  width: 80px;
+  height: 80px;
+  margin: 10px -10px 29px -12px;
+  object-fit: cover;
+}
+.info-top-left p {
+  font-weight: bold;
+}
+.info-top-right p {
+  font-weight: bold;
+}
+.info-second-middle,
+.info-second-right,
+.info-third-left,
+.info-third-right p {
+  font-weight: bold;
+}
+
+.checkout-section-main {
+  background-color: #6c6c6c;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-heading {
+  background-color: #edb932;
+}
+.text-heading .container h2 {
+  padding: 20px 0 10px 0;
+}

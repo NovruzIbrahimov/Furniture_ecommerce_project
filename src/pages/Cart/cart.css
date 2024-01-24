@@ -1,0 +1,45 @@
+.table{
+    border: 1px solid #ccc;
+}
+td.product-td-image img{
+    width: 70px;
+    height: 70px;
+}
+td.product-td{
+    padding-top: 25px;
+}
+.product-td i.bsx-icon{
+    font-size: 35px;
+    line-height: 20px;
+    color: #6c6c6c;
+    cursor: pointer;
+}
+th.custom-th{
+    font-size: 20px;
+    color: #6c6c6c;
+}
+th.custom-th-custom{
+    font-size: 30px;
+    color: #1c1c1c;
+}
+td.product-td-product{
+    font-size: 20px;
+    font-weight: bold;
+    color: #6c6c6c;
+}
+td a{
+    color: #1c1c1c;
+    background-color: #EDB932;
+    border: 1px solid #EDB932;
+}
+.checkout button{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 30px 110px;
+    transition: .3s;
+    background-color: #EDB932;
+    border-color: #EDB932;
+}
+.checkout button:hover{
+    color: #fafafa;
+}

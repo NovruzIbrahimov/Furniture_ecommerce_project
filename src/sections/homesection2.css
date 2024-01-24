@@ -1,0 +1,48 @@
+.homesection2{
+    padding: 30px 80px 30px 80px;
+}
+.homesection2 .container {
+    margin: 0 0 0 0;
+    padding: 60px 0 60px 0;
+}
+.left2-box{
+    max-width: 765px;
+    width: 100%;
+}
+.left2-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.right2-box{
+    padding: 20px 0 15px 65px;
+}
+.right2-box span{
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #BC9127;
+}
+.right2-box h2{
+    font-size: 46px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-top: 40px;
+}
+.right2-box p {
+    font-size: 21px;
+    color: #1a1a1a;
+    margin-top: 24px;
+    margin-bottom: 95px;
+}
+.right2-box a{
+    padding: 10px 9px;
+    background-color: #EDB932;
+    color: #1a1a1a;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .3s;
+}
+.right2-box a:hover{
+    color: #fafafa;
+}

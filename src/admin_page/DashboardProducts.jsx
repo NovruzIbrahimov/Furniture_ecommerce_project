@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import "../admin_page/dashboardProducts.css";
@@ -185,7 +186,7 @@ function DashboardProducts() {
 
       console.log("Login successful", response.data);
       message.success(response.data.data);
-
+      fetchData();
       setDeleteModalVisible(false);
       setSelectedRowKeys([]);
     } catch (error) {
@@ -217,6 +218,7 @@ function DashboardProducts() {
       message.success(
         "id: " + response.data.data._id + "  product added successfully"
       );
+      fetchData();
       addProductForm.resetFields();
       setProducts((prevProducts) => [...prevProducts, response.data]);
       setAddProductModalVisible(false);
@@ -246,7 +248,7 @@ function DashboardProducts() {
           },
         }
       );
-
+      fetchData();
       setEditProductModalVisible(false);
       message.success("id: " + response.data.data.data + "");
       editProductForm.resetFields();
@@ -304,6 +306,8 @@ function DashboardProducts() {
       console.log("Image file list updated:", imageFileList);
     });
   };
+
+  
 
   const dummyRequest = ({ file, onSuccess }) => {
     setTimeout(() => {

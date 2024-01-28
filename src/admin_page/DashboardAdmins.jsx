@@ -97,7 +97,8 @@ function DashboardAdmins() {
           },
         }
       );
-
+      
+      console.log(response.data.data.user);
       console.log("Login successful", response.data);
       message.success(
         "id: " + response.data.data.user._id + "  Admin added successfully"
@@ -105,6 +106,7 @@ function DashboardAdmins() {
       editCustomerForm.resetFields();
       setCustomers((prevProducts) => [...prevProducts, response.data]);
       setAddCustomerModalVisible(false);
+      fetchData();
     } catch (error) {
       console.error("Error creating admin:", error.message);
     }
@@ -123,7 +125,7 @@ function DashboardAdmins() {
 
       console.log("Login successful", response.data);
       message.success(response.data.data);
-
+      fetchData();
       setDeleteModalVisible(false);
       setSelectedRowKeys([]);
     } catch (error) {

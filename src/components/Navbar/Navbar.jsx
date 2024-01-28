@@ -15,9 +15,9 @@ import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { openCartSidebar, closeCartSidebar } from "../../redux/slice/cartSlice";
 import { updateQuantity } from "../../redux/slice/cartSlice";
-import { removeItem } from "../../redux/slice/cartSlice";
+import {clearCart, removeItem } from "../../redux/slice/cartSlice";
 import axios from "axios";
-
+import { message } from "antd";
 
 function Navbar({ clicked, isClicked }) {
   const dispatch = useDispatch();
@@ -56,7 +56,9 @@ function Navbar({ clicked, isClicked }) {
         }
       );
 
+      dispatch(clearCart());
       message.success("Your order has been registered");
+      handleCloseCart();
       navigate("/products");
     } catch (error) {
       console.error("Error creating product:", error.message);

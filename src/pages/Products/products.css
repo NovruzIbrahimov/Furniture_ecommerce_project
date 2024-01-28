@@ -43,10 +43,11 @@ a.bars {
   color: #6c6c6c;
   font-weight: bold;
 }
-.sidebar-middle a {
+.sidebar-middle button {
   padding: 10px 25px 10px 25px;
   color: #1a1a1a;
   background-color: #edb932;
+  border-color: #edb932;
   font-weight: bold;
 }
 .sidebar-bottom p {

@@ -28,7 +28,7 @@ function Register() {
 
       console.log("Registration successful", response.data);
       localStorage.setItem("token", "Bearer " + response.data.data.token);
-      navigate("/login");
+      navigate("/");
 
     } catch (error) {
       setErrorMessage("Registration failed. Please try again.");

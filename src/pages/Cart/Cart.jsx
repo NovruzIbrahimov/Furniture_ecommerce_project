@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
@@ -5,18 +7,26 @@ import "../Cart/cart.css";
 import { Table } from "react-bootstrap";
 import { BsX } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import {clearCart,removeItem,updateQuantity,} from "../../redux/slice/cartSlice";
-import axios from "axios";
+import {addToCartLocally, clearCart,removeItem,updateQuantity,} from "../../redux/slice/cartSlice";
+import api from '../../config/axiosConfig';
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 
 function Cart() {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+  
+  //---------------------------------order--------------------------------------------
   const createOrder = async (values) => {
+  const filteredProducts = cartItems.filter(product => {
+    const strRepresentation = JSON.stringify(product);
+    return strRepresentation.startsWith('{');
+  });
+
     const transformedData = {
-      products: cartItems.map((product) => ({
+      products: filteredProducts.map((product) => ({
         productId: product.id,
         productCount: product.quantity,
       })),
@@ -26,31 +36,53 @@ function Cart() {
       navigate("/login");
     }
 
-    const a = JSON.stringify(transformedData);
-    console.log(a);
+
     try {
-      const response = await axios.post(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/site/orders",
+      const responses = await api.post(
+        "/site/orders",
         {
           products: transformedData.products,
         },
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
       );
 
       dispatch(clearCart());
       message.success("Your order has been registered");
       navigate("/products");
     } catch (error) {
+      message.error("We're sorry, but the requested product is currently out of stock");
+      // message.error(responses.data.message);
       console.error("Error creating product:", error.message);
     }
   };
 
-  const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.items);
+  const fetchCartItems = async () => {
+    try {
+      const response = await api.get("/site/basket");
+
+      
+      const cartItems = response.data.data.map(item =>
+          ({
+        basketId: item._id,
+        id: item.productId,
+        image: item.productImage, 
+        title: item.productTitle, 
+        price: item.productPrice,
+        quantity: item.productCount,
+      })
+      );
+      
+      dispatch(addToCartLocally(cartItems)); 
+    } catch (error) {
+      console.error("Error fetching cart items:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    if (token) {
+      fetchCartItems();
+      
+    }
+  }, [token]);
 
   const handleIncrement = (id) => {
     dispatch(updateQuantity({ id, quantity: 1 }));
@@ -60,33 +92,18 @@ function Cart() {
     dispatch(updateQuantity({ id, quantity: -1 }));
   };
 
-  const handleRemoveItem = (id) => {
-    dispatch(removeItem({ id }));
+  const handleRemoveItem = (item) => {
+    dispatch(removeItem({ item }));
+    const updatedCartItems = cartItems.filter(item => item.id !== id);
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   };
 
   const calculateSubtotal = () => {
-    return cartItems.reduce((sum, item) => {
-      const itemPrice = parseFloat(item.price);
-      const itemQuantity = parseInt(item.quantity);
-
-      if (!isNaN(itemPrice) && !isNaN(itemQuantity)) {
-        return sum + itemPrice * itemQuantity;
-      } else {
-        return sum;
-      }
-    }, 0);
+    return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   };
 
   const calculateTotal = () => {
-    return cartItems.reduce((sum, item) => {
-      const itemQuantity = parseInt(item.quantity);
-
-      if (!isNaN(itemQuantity)) {
-        return sum + itemQuantity;
-      } else {
-        return sum;
-      }
-    }, 0);
+    return cartItems.reduce((sum, item) => sum + item.quantity, 0);
   };
 
   return (
@@ -142,7 +159,7 @@ function Cart() {
                     <td className="product-td">
                       <i
                         className="bsx-icon"
-                        onClick={() => handleRemoveItem(item.id)}
+                        onClick={() => handleRemoveItem(item)}
                       >
                         <BsX />
                       </i>

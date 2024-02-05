@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "../Register/register.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
+import api from '../../config/axiosConfig';
 import { useNavigate } from "react-router-dom";
 
 function Register() {
@@ -16,8 +16,8 @@ function Register() {
   //-----------------------------------------------AXIOS POST METODU------------------------------------------
   const handleRegistration = async () => {
     try {
-      const response = await axios.post(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/site/register",
+      const response = await api.post(
+        "/site/register",
         {
           name: firstName,
           surname: surname,
@@ -25,8 +25,6 @@ function Register() {
           password: password,
         }
       );
-
-      console.log("Registration successful", response.data);
       localStorage.setItem("token", "Bearer " + response.data.data.token);
       navigate("/");
 
@@ -90,7 +88,7 @@ function Register() {
             />
           </div>
           <div className="d-grid">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-one">
               Register
             </button>
           </div>

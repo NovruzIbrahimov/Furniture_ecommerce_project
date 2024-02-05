@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, NavLink, useParams } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
-import axios from "axios";
+import api from '../config/axiosConfig';
 
 function HomeSection3() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -42,25 +42,14 @@ function HomeSection3() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/site/products?page=1&perPage=4&minPrice=&maxPrice=&search=&stock=inStock",
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
+      const response = await api.get("/site/products?page=1&perPage=4&minPrice=&maxPrice=&search=&stock=inStock");
+
       setProducts(response.data.data.product);
 
-      const brandsResponse = await axios.get(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/site/brands",
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
+      const brandsResponse = await api.get("/site/brands");
+      
       setBrandList(brandsResponse.data.data);
+      
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
@@ -157,7 +146,7 @@ function HomeSection3() {
                               </button>
                             </div>
                             <Link to={`/cart`}>
-                              <button className="btn btn-primary mt-3">
+                              <button className="btn btn-one mt-3">
                                 Add to Cart
                               </button>
                             </Link>

@@ -19,7 +19,7 @@ import {
   LineChart,
   Line,
 } from "recharts";
-import "../admin_page/dashboardhome.css";
+import "../Home/dashboardhome.css";
 
 function DashboardHome() {
   const data = [

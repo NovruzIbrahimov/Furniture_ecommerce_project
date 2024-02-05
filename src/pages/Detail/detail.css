@@ -23,14 +23,27 @@
   border-color: #EDB932;
 }
 
-.btn-primary {
+.btn-one {
   color: #fff;
   background-color: #EDB932;
   padding: 10px 40px;
   border-color: #EDB932;
 }
 
-.btn-primary:hover {
+.btn-one:hover {
+  color: #fff;
+  background-color: #EDB932;
+  border-color: #EDB932;
+}
+.btn-second {
+  color: #fff;
+  background-color: #EDB932;
+  padding: 10px 40px;
+  border-color: #EDB932;
+  margin-left: 10px;
+}
+
+.btn-second:hover {
   color: #fff;
   background-color: #EDB932;
   border-color: #EDB932;

@@ -1,25 +1,26 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import React, {useEffect, useState} from "react";
-import Header from "../admin_page/Header";
-import Sidebar from "../admin_page/Sidebar";
+/* eslint-disable react-hooks/exhaustive-deps */
+import PropTypes from 'prop-types';
+import {useEffect, useState} from "react";
+import Header from "../components/AdminHeader/Header";
+import Sidebar from "../components/AdminSideBar/Sidebar";
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
 
 function DashboardMenu({ children }) {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
   const token = localStorage.getItem("token");
-  const user = localStorage.getItem("user");
+  const user = JSON.parse(localStorage.getItem('user'));
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!token) {
       navigate("/adminlogin");
     }
-
-  }, []);
-
-
+    else if (user !== null && user.data.user.role === "client") {
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      navigate('/');
+    }
+  }, [user]);
 
   const OpenSidebar = () => {
     setOpenSidebarToggle(!openSidebarToggle);
@@ -39,5 +40,9 @@ function DashboardMenu({ children }) {
     </div>
   );
 }
+
+DashboardMenu.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default DashboardMenu;

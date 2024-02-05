@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import "../SignIn/login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
+import api from '../../config/axiosConfig';
 import { useNavigate } from "react-router-dom";
 import {message} from "antd";
 
@@ -16,17 +16,14 @@ function Login() {
   //-------------------------------------------AXIOS POST METODU--------------------------------------------
   const handleLogin = async () => {
     try {
-      const response = await axios.post(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/login",
+      const response = await api.post(
+        "/login",
         {
           email: email,
           password: password,
         }
       );
 
-      console.log("Login successful", response.data);
-
-      console.log("role" + response.data.data.user.role)
       if (response.data.data.user.role == "client")  {
         localStorage.setItem("token", "Bearer " + response.data.data.token);
         localStorage.setItem("user", JSON.stringify(response.data));
@@ -35,7 +32,6 @@ function Login() {
       else {
         message.error('Sizin istifadəçi admin üçün nəzərdə tutulub.');
       }
-
     } catch (error) {
       setErrorMessage("Incorrect email or password. Please try again.");
     }
@@ -86,7 +82,7 @@ function Login() {
             </label>
           </div>
           <div className="d-grid">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-one">
               Login
             </button>
           </div>

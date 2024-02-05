@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import "../../pages/checkout/checkout.css";
+import "./checkout.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem, closeCartSidebar } from "../../redux/slice/cartSlice";

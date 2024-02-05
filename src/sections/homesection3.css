@@ -1,6 +1,6 @@
 .card {
   cursor: pointer;
-  text-align: center; /* Center the content within the card */
+  text-align: center;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
 }

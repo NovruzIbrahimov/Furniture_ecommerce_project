@@ -10,14 +10,14 @@ import Register from "./pages/Register/Register";
 import Detail from "./pages/Detail/Detail";
 import Cart from "./pages/Cart/Cart";
 import Layout from "./pages/Layout";
-import DashboardHome from "./admin_page/DashboardHome";
-import DashboardProducts from "./admin_page/DashboardProducts";
-import DashboardCategories from "./admin_page/DashboardCategories";
-import DashboardAdmins from "./admin_page/DashboardAdmins";
-import DashboardOrders from "./admin_page/DashboardOrders";
+import DashboardHome from "./pages/Admin/Dashboard/Home/DashboardHome";
+import DashboardProducts from "./pages/Admin/Dashboard/Products/DashboardProducts";
+import DashboardCategories from "./pages/Admin/Dashboard/Categories/DashboardCategories";
+import DashboardAdmins from "./pages/Admin/Dashboard/Admins/DashboardAdmins";
+import DashboardOrders from "./pages/Admin/Dashboard/Order/DashboardOrders";
 import DashboardMenu from "./pages/DashboardMenu";
-import Checkout from "./pages/checkout/Checkout";
-import AdminLogin from "./pages/admin/AdminLogin";
+import Checkout from "./pages/Checkout/Checkout";
+import AdminLogin from "./pages/admin/AdminLogin/AdminLogin";
 
 function App() {
   return (

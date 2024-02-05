@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import "../admin_page/dashboardAdmins.css";
+import "../Admins/dashboardAdmins.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Input, Modal } from "antd";
 import { Table, Form, InputNumber, Popconfirm, Typography } from "antd";
@@ -9,7 +9,7 @@ import { CiExport } from "react-icons/ci";
 import { CiImport } from "react-icons/ci";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
-import axios from "axios";
+import api from '../../../../config/axiosConfig';
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 import { FiPlus } from "react-icons/fi";
@@ -57,7 +57,6 @@ function DashboardAdmins() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const token = localStorage.getItem("token");
 
   useEffect(() => {
       fetchData();
@@ -66,15 +65,9 @@ function DashboardAdmins() {
 // ------------------------------------------AXIOS GET METODU-------------------------------------------
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/dashboard/users",
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
+      const response = await api.get(
+        "/dashboard/users",
       );
-      // console.log(response.data.data.product);
       setCustomers(response.data.data);
     } catch (error) {
       console.error("Error fetching data:", error.message);
@@ -83,23 +76,15 @@ function DashboardAdmins() {
 // -----------------------------------------AXIOS POST METODU------------------------------------------
   const handleAddAdmin = async (values) => {
     try {
-      const response = await axios.post(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/dashboard/register",
+      const response = await api.post(
+        "/dashboard/register",
         {
           name: name,
           surname: "null",
           email: email,
           password: password,
         },
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
       );
-      
-      console.log(response.data.data.user);
-      console.log("Login successful", response.data);
       message.success(
         "id: " + response.data.data.user._id + "  Admin added successfully"
       );
@@ -114,16 +99,8 @@ function DashboardAdmins() {
 // -----------------------------------------AXIOS DELETE METODU----------------------------------------
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(
-        `https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/dashboard/users/${selectedDeleteRecord._id}`,
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
+      const response = await api.delete(`/dashboard/users/${selectedDeleteRecord._id}`,);
 
-      console.log("Login successful", response.data);
       message.success(response.data.data);
       fetchData();
       setDeleteModalVisible(false);
@@ -143,7 +120,6 @@ function DashboardAdmins() {
   };
 // -----------------------------------SELECT CHANGE---------------------------------------------------
   const onSelectChange = (newSelectedRowKeys) => {
-    console.log("selectedRowKeys changed: ", newSelectedRowKeys);
     setSelectedRowKeys(newSelectedRowKeys);
   };
 // ---------------------------------ROW SELECTION----------------------------------------------------
@@ -176,13 +152,10 @@ function DashboardAdmins() {
   };
 // ------------------------------------CANCEL-------------------------------------------------------
   const onCancel = () => {
-    console.log("Canceling modal");
     addCustomerForm.resetFields();
-    console.log("Form fields reset");
     setDeleteModalVisible(false);
     setAddCustomerModalVisible(false);
     setEditCustomerModalVisible(false);
-    console.log("Modal visibility set to false");
   };
 // -----------------------------------HANDLE SUBMIT------------------------------------------------
   const handleSubmit = (e) => {

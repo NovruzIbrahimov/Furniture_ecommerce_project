@@ -1,60 +1,60 @@
-.homesection6-top{
-    padding: 30px 80px 30px 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.homesection6-top {
+  padding: 30px 80px 30px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.homesection6-top h2{
-    font-size: 50px;
-    color: #1a1a1a;
-    font-weight: bold;
+.homesection6-top h2 {
+  font-size: 50px;
+  color: #1a1a1a;
+  font-weight: bold;
 }
-.homesection6-top a{
-    cursor: pointer;
-    text-decoration: none;
-    padding: 6px 8px 6px 8px;
-    border: 1px solid #EDB932;
-    background-color: #EDB932;
-    color: #1a1a1a;
-    font-weight: bold;
+.homesection6-top a {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 6px 8px 6px 8px;
+  border: 1px solid #edb932;
+  background-color: #edb932;
+  color: #1a1a1a;
+  font-weight: bold;
 }
-.left-text-left1{
-    width: 264px;
-    height: 216px;
+.left-text-left1 {
+  width: 264px;
+  height: 216px;
 }
-.left-text-left1 img{
-    width: 100%;
-    object-fit: contain;
+.left-text-left1 img {
+  width: 100%;
+  object-fit: contain;
 }
-.left-text-right1{
-    padding: 0px 0 20px 40px;
+.left-text-right1 {
+  padding: 0px 0 20px 40px;
 }
-.left-text-right1 p{
-    font-size: 20px;
-    color: #6c6c6c;
+.left-text-right1 p {
+  font-size: 20px;
+  color: #6c6c6c;
 }
-.left-text-right1 h1{
-    font-size: 21px;
-    font-weight: bold;
-    color: #1a1a1a;
+.left-text-right1 h1 {
+  font-size: 21px;
+  font-weight: bold;
+  color: #1a1a1a;
 }
-.right-text-left1{
-    width: 264px;
-    height: 216px;
+.right-text-left1 {
+  width: 264px;
+  height: 216px;
 }
-.right-text-left1 img{
-    width: 100%;
-    object-fit: contain;
+.right-text-left1 img {
+  width: 100%;
+  object-fit: contain;
 }
-.right-text-right1{
-    padding: 0px 0 20px 40px;
+.right-text-right1 {
+  padding: 0px 0 20px 40px;
 }
-.right-text-right1 p{
-    font-size: 20px;
-    color: #6c6c6c;
+.right-text-right1 p {
+  font-size: 20px;
+  color: #6c6c6c;
 }
-.right-text-right1 h1{
-    font-size: 21px;
-    font-weight: bold;
-    color: #1a1a1a;
+.right-text-right1 h1 {
+  font-size: 21px;
+  font-weight: bold;
+  color: #1a1a1a;
 }

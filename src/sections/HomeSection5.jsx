@@ -4,7 +4,7 @@ import "../sections/homesection5.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, NavLink } from "react-router-dom";
 import { FaRegEye, FaShoppingCart } from "react-icons/fa";
-import axios from "axios";
+import api from '../config/axiosConfig';
 
 function HomeSection5() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -30,6 +30,7 @@ function HomeSection5() {
       limitLetters(`brandId1_${products._id}`, 20);
       limitLetters(`title2_${products._id}`, 25);
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getBrandName = (brandId) => {
@@ -39,31 +40,19 @@ function HomeSection5() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/site/products?page=1&perPage=8&minPrice=&maxPrice=&search=&stock=inStock",
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
+
+      const response = await api.get("/site/products?page=1&perPage=8&minPrice=&maxPrice=&search=&stock=inStock");
+      
       setProducts(response.data.data.product);
 
-      const brandsResponse = await axios.get(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/site/brands",
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
+      const brandsResponse = await api.get("/site/brands");
+      
       setBrandList(brandsResponse.data.data);
+
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
   };
-
-  
 
   const openModal = (_id) => {
     setSelectedProductId(_id);
@@ -159,7 +148,7 @@ function HomeSection5() {
                               </button>
                             </div>
                             <Link to={`/cart`}>
-                              <button className="btn btn-primary mt-3">
+                              <button className="btn btn-one mt-3">
                                 Add to Cart
                               </button>
                             </Link>

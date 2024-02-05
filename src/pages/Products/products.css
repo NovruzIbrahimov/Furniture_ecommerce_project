@@ -16,15 +16,15 @@
   justify-content: space-between;
   align-items: center;
 }
-.products-top-left a{
+.products-top-left a {
   font-size: 18px;
   font-weight: bold;
   color: #1a1a1a;
   padding: 10px 25px;
   background-color: #edb932;
-  transition: .3s;
+  transition: 0.3s;
 }
-.products-top-left a:hover{
+.products-top-left a:hover {
   color: #fff;
 }
 .close-icon {
@@ -82,15 +82,16 @@ select#sortOptions.form-control {
 
 .card {
   cursor: pointer;
-  display: flex; 
+  display: flex;
   align-items: center;
 }
+
 .card img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  object-position: 50% 30%; /* Adjust the second value to control the vertical positioning */
-  border-radius: 0; /* Remove the border-radius */
+  object-position: 50% 30%;
+  border-radius: 0;
 }
 
 .card-body {
@@ -151,4 +152,26 @@ label {
 input {
   width: 60%;
   margin-top: 5px;
+}
+
+.pagination{
+  outline: none;
+  box-shadow: none;
+}
+
+.page-item{
+  outline: none;
+  box-shadow: none;
+}
+
+.page-link{
+  outline: none;
+  box-shadow: none;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
 }

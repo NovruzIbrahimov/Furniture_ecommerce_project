@@ -1,25 +1,75 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import "../Detail/detail.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { BeatLoader } from "react-spinners";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/slice/cartSlice";
-import axios from "axios";
+import api from "../../config/axiosConfig";
+import { message } from "antd";
+import { addToCartLocally } from "../../redux/slice/cartSlice";
 
 function Detail() {
   const [quantity, setQuantity] = useState(1);
   const { _id } = useParams();
   const [products, setProducts] = useState(null);
   const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
-  const handleAddToCart = () => {
-    if (products) {
+  //------------------------------------ADD TO CART FUNKSIYASI-------------------------------------
+  const addBasket = async (id, count) => {
+    try {
+      await api
+        .post("/site/basket", {
+          basket: [
+            {
+              productId: id,
+              productCount: count,
+            },
+          ],
+        })
+        .then(() => {
+          message.success("added to basket");
+          navigate("/products");
+          window.location.reload();
+        });
+
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        updateBasket(id, count).then(() => {
+          message.success("updated basket");
+          navigate("/products");
+          window.location.reload();
+        });
+      }
+      console.error("Error creating product:", error.message);
+    }
+  };
+
+  const updateBasket = async (id, count) => {
+    try {
+      await api.put(`/site/basket/${id}`, {
+        basket: [
+          {
+            productCount: count,
+          },
+        ],
+      });
+    } catch (error) {
+      console.error("Error creating product:", error.message);
+    }
+  };
+
+  const handleAddToCart = async () => {
+    if (products && token) {
+      addBasket(products._id, quantity);
+    } else {
       const newItem = {
         id: products._id,
         image: products.images[0].url,
@@ -27,44 +77,43 @@ function Detail() {
         price: products.productPrice,
         quantity,
       };
-      dispatch(addToCart(newItem));
-    } else {
-      console.log("Product data is not available yet. Unable to add to cart.");
+      dispatch(addToCartLocally(newItem));
+      message.success("Item added to cart locally!");
     }
   };
 
+  //-------------------------------------ARTMA FUNKSIYASI-------------------------------------------
   const increment = () => {
     setQuantity(quantity + 1);
   };
-
+  //-------------------------------------AZALMA FUNKSIYASI-------------------------------------------
   const decrement = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
-
   //--------------------------------------AXIOS GET METODU------------------------------------------
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/site/products/${_id}`,
-          {
-            headers: {
-              Authorization: localStorage.getItem("token"),
-            },
-          }
-        );
-        setProducts(response.data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error.message);
-      }
-    };
     fetchData();
-  }, [_id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  const fetchData = async () => {
+    try {
+      const response = await api.get(`/site/products/${_id}`);
+      setProducts(response.data.data);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
+  };
+
+  //-------------------------------------LOADING----------------------------------------------------
   if (!products) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading-container" style={{ textAlign: "center" }}>
+        <BeatLoader color="#d6bc36" margin={3} />
+      </div>
+    );
   }
 
   return (
@@ -90,13 +139,13 @@ function Detail() {
                   +
                 </button>
               </div>
-              <Link to={`/cart`}>
-                <button
-                  className="btn btn-primary mt-3"
-                  onClick={handleAddToCart}
-                >
+              <Link>
+                <button className="btn btn-one mt-3" onClick={handleAddToCart}>
                   Add to Cart
                 </button>
+              </Link>
+              <Link to={`/cart`}>
+                <button className="btn btn-second mt-3">Go to Cart</button>
               </Link>
             </div>
           </div>

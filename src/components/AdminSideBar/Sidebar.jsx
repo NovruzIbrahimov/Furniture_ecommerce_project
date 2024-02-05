@@ -8,7 +8,7 @@ import {
   BsFillGrid3X3GapFill,
   BsPeopleFill,
 } from "react-icons/bs";
-import "../admin_page/sidebar.css";
+import "../AdminSideBar/sidebar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaRegCompass } from "react-icons/fa";
 import { Link } from "react-router-dom";

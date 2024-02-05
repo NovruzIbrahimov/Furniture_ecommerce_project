@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../../pages/admin/adminlogin.css'
-import axios from 'axios';
+import './adminlogin.css'
 import { useNavigate } from 'react-router-dom';
 import {message} from "antd";
+import api from '../../../config/axiosConfig';
+
 
 const Login = () => {
   const navigate = useNavigate(); 
@@ -16,16 +16,11 @@ const Login = () => {
   //------------------------------------------------AXIOS POST METODU--------------------------------------
   const handleLogin = async () => {
     try {
-      console.log("here login")
-      const response = await axios.post('https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/login', 
+      const response = await api.post('/login', 
       {
         email: email,
         password: password,
       });
-
-      console.log('Login successful', response.data);
-
-      console.log("role : " + response.data.data.user.role)
       if (response.data.data.user.role !== "client")  {
         localStorage.setItem("token", "Bearer " + response.data.data.token);
         localStorage.setItem("user", JSON.stringify(response.data));
@@ -34,7 +29,6 @@ const Login = () => {
       else {
         message.error('Your user is intended for user.');
       }
-  
       } catch (error) {
           setErrorMessage('Incorrect email or password. Please try again.');
       }
@@ -79,7 +73,7 @@ const Login = () => {
               </label>
             </div>
             <div className='d-grid'>
-              <button type="submit" className='btn btn-primary'>Login</button>
+              <button type="submit" className='btn btn-one'>Login</button>
             </div>
           </form>
         </div>

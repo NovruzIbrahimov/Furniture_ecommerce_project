@@ -96,7 +96,6 @@
   justify-content: center;
 }
 
-
 @media screen and (max-width: 1175px) {
   .Nav {
     padding: 25px 0px 25px 20px;
@@ -148,8 +147,20 @@
   color: #1a1a1a;
 }
 .cart-sidebar-middle {
-  max-height: calc(100% - 150px);
+  max-height: 480px;
   overflow-y: auto;
+}
+.cart-sidebar-middle::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cart-sidebar-middle::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.cart-sidebar-middle::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
 }
 .cart-sidebar-middle-left {
   height: 60px;
@@ -228,7 +239,7 @@
   padding: 15px 25px;
   border-top: 2px solid #ccc;
   border: 2px solid #ccc;
-  overflow: hidden; /* Add this line to hide horizontal overflow */
+  overflow: hidden;
 }
 .cart-sidebar-footer-top {
   margin-bottom: 30px;

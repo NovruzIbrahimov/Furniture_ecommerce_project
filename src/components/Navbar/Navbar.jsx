@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
-import {Link, NavLink, useNavigate} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../Navbar/navbar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ImCross } from "react-icons/im";
@@ -13,10 +13,18 @@ import { FaShoppingCart } from "react-icons/fa";
 import { BsX } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { openCartSidebar, closeCartSidebar } from "../../redux/slice/cartSlice";
-import { updateQuantity } from "../../redux/slice/cartSlice";
-import {clearCart, removeItem } from "../../redux/slice/cartSlice";
-import axios from "axios";
+import {
+  openCartSidebar,
+  closeCartSidebar,
+  addToCartLocally,
+} from "../../redux/slice/cartSlice";
+import {
+  updateQuantity,
+  clearCart,
+  removeItem,
+  setFetchedData,
+} from "../../redux/slice/cartSlice";
+import api from "../../config/axiosConfig";
 import { message } from "antd";
 
 function Navbar({ clicked, isClicked }) {
@@ -24,17 +32,55 @@ function Navbar({ clicked, isClicked }) {
   const cartItems = useSelector((state) => state.cart.items);
   const cartCount = useSelector((state) => state.cart.items.length);
   const isCartSidebarOpen = useSelector((state) => state.cart.isSidebarOpen);
-  // const [fetchedCartItems, setFetchedCartItems] = useState([]);
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  const [product, setProduct] = useState([]);
+
+  const fetchCartItems = async () => {
+    try {
+      const response = await api.get("/site/basket");
+      const cartItems = await Promise.all(
+        response.data.data.map(async (item) => {
+          return await fetchData(item.productId).then((product) => {
+            return {
+              basketId: item._id,
+              id: item.productId,
+              image: product?.images.length > 0 ? product.images[0].url : null,
+              title: product.title,
+              price: product.productPrice,
+              quantity: item.productCount,
+            };
+          });
+        })
+      );
+      dispatch(setFetchedData(cartItems));
+    } catch (error) {
+      console.error("Error fetching cart items:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    if (token) {
+      fetchCartItems();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
+
+  const fetchData = async (id) => {
+    try {
+      const response = await api.get(`/site/products/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
+  };
 
   const createOrder = async (values) => {
-
     const transformedData = {
-      products: cartItems.map(product => ({
+      products: cartItems.map((product) => ({
         productId: product.id,
-        productCount: product.quantity // You can adjust this count based on your requirements
-      }))
+        productCount: product.quantity, // You can adjust this count based on your requirements
+      })),
     };
 
     if (!token) {
@@ -42,19 +88,11 @@ function Navbar({ clicked, isClicked }) {
     }
 
     const a = JSON.stringify(transformedData);
-    console.log(a);
+
     try {
-      const response = await axios.post(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/site/orders",
-        {
-          products: transformedData.products
-        },
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
+      const response = await api.post("/site/orders", {
+        products: transformedData.products,
+      });
 
       dispatch(clearCart());
       message.success("Your order has been registered");
@@ -66,17 +104,16 @@ function Navbar({ clicked, isClicked }) {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    navigate('/');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/");
     window.location.reload();
   };
 
   const handleClicked = () => {
     isClicked(!clicked);
-    console.log("clicked");
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
   };
 
   const handleOpenCart = () => {
@@ -95,8 +132,11 @@ function Navbar({ clicked, isClicked }) {
     dispatch(updateQuantity({ id, quantity: -1 }));
   };
 
-  const handleRemoveItem = (id) => {
-    dispatch(removeItem({ id }));
+  const handleRemoveItem = (item) => {
+    dispatch(removeItem({ item }));
+
+    const updatedCartItems = cartItems.filter((item) => item.id !== id);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
 
   const calculateSubtotal = () => {
@@ -186,7 +226,7 @@ function Navbar({ clicked, isClicked }) {
                           <div className="right-top-right">
                             <i
                               className="right-top-right-icon"
-                              onClick={() => handleRemoveItem(item.id)}
+                              onClick={() => handleRemoveItem(item)}
                             >
                               <FaTrashAlt />
                             </i>
@@ -234,7 +274,7 @@ function Navbar({ clicked, isClicked }) {
                     </Link>
                   </div>
                   <div className="footer-bottom-bottom mt-5">
-                  <button onClick={() => createOrder()}>CHECKOUT</button>
+                    <button onClick={() => createOrder()}>CHECKOUT</button>
                   </div>
                 </div>
               </div>
@@ -243,28 +283,27 @@ function Navbar({ clicked, isClicked }) {
         </li>
 
         {token && (
-        <li className="NavButton" onClick={handleLogout}>
-          <IoLogOutOutline />
-        </li>
+          <li className="NavButton" onClick={handleLogout}>
+            <IoLogOutOutline />
+          </li>
         )}
         {!token && (
-        <li className="NavButton">
-          <NavLink className="Link link-register" to="/register">
-            Register
-          </NavLink>
-        </li>
+          <li className="NavButton">
+            <NavLink className="Link link-register" to="/register">
+              Register
+            </NavLink>
+          </li>
         )}
         {!token && (
-        <li
-          className="NavElements"
-          style={{ float: "right", margin: "-8px 2px 1px 2px" }}
-        >
-          <NavLink className="Link" to="/login">
-            Login
-          </NavLink>
-        </li>
+          <li
+            className="NavElements"
+            style={{ float: "right", margin: "-8px 2px 1px 2px" }}
+          >
+            <NavLink className="Link" to="/login">
+              Login
+            </NavLink>
+          </li>
         )}
-
       </ul>
       {!clicked ? (
         <GiHamburgerMenu onClick={handleClicked} className="Icon" />

@@ -1,10 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import "../admin_page/dashboardOrders.css";
-import { Input, Select, Button, DatePicker, Table, Typography, message } from "antd";
+import "../Order/dashboardOrders.css";
+import {
+  Input,
+  Select,
+  Button,
+  DatePicker,
+  Table,
+  Typography,
+  message,
+} from "antd";
 import { IoIosCloudDownload } from "react-icons/io";
-import axios from "axios";
-import { FaRegEdit } from "react-icons/fa";
+import api from "../../../../config/axiosConfig";
 import { CiDeliveryTruck } from "react-icons/ci";
 
 const { Option } = Select;
@@ -23,7 +30,6 @@ function DashboardOrders() {
   const [searchText, setSearchText] = useState("");
   const [statusFilter, setStatusFilter] = useState(null);
   const [dateRange, setDateRange] = useState([]);
-  const token = localStorage.getItem("token");
   const [selectedId, setSelectedId] = useState(null);
   const [selectedAction, setSelectedAction] = useState(null);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -34,20 +40,8 @@ function DashboardOrders() {
 
   const fetchData = async () => {
     try {
-      const response = await axios
-        .get(
-          "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/dashboard/orders",
-          {
-            headers: {
-              Authorization: token,
-            },
-          }
-        )
-      console.log(response.data.data.data);
-        // .then((response) => {
-          setData(response.data.data.data);
-
-        // });
+      const response = await api.get("/dashboard/orders");
+      setData(response.data.data.data);
     } catch (error) {
       console.error("Error fetching data:");
     }
@@ -56,35 +50,23 @@ function DashboardOrders() {
   const showEditOrderModal = (action, record) => {
     setSelectedId(record._id);
     setSelectedAction(action);
-};
+  };
 
-const doAction = ( record) => {
-  setSelectedId(record._id);
-  handleUpdate(record);
-};
+  const doAction = (record) => {
+    setSelectedId(record._id);
+    handleUpdate(record);
+  };
 
   const handleUpdate = async (values) => {
-    console.log("here")
     try {
-      console.log(setSelectedId())
-
-        const response = await axios.put(
-            `https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/dashboard/orders/${selectedId}`,
-            {
-              status: selectedAction
-            },
-            {
-                headers: {
-                    Authorization: localStorage.getItem("token"),
-                },
-            }
-        );
-
-        fetchData();
+      const response = await api.put(`/dashboard/orders/${selectedId}`, {
+        status: selectedAction,
+      });
+      fetchData();
     } catch (error) {
-        message.error("Failed to update product. Please try again.");
+      message.error("Failed to update product. Please try again.");
     }
-};
+  };
 
   const handleSearch = (value) => {
     setSearchText(value);
@@ -95,7 +77,6 @@ const doAction = ( record) => {
   };
 
   const onSelectChange = (newSelectedRowKeys) => {
-    console.log("selectedRowKeys changed: ", newSelectedRowKeys);
     setSelectedRowKeys(newSelectedRowKeys);
   };
 
@@ -109,19 +90,8 @@ const doAction = ( record) => {
       setDateRange(dates);
     }
   };
-  const hasSelected = selectedRowKeys.length > 0;
-  // const filteredData = data.filter((item) => {
-  //   const searchTextMatch = item.customerName
-  //     .toLowerCase()
-  //     .includes(searchText.toLowerCase());
-  //   const statusMatch = statusFilter ? item.status === statusFilter : true;
-  //   const dateMatch =
-  //     dateRange.length === 0 ||
-  //     (item.orderTime >= dateRange[0].format("YYYY-MM-DD") &&
-  //       item.orderTime <= dateRange[1].format("YYYY-MM-DD"));
 
-  //   return searchTextMatch && statusMatch && dateMatch;
-  // });
+  const hasSelected = selectedRowKeys.length > 0;
 
   const columns = [
     { title: "ID", dataIndex: "_id", key: "_id" },
@@ -134,7 +104,10 @@ const doAction = ( record) => {
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
-        <Select style={{ width: 120 }} onChange={(value) => showEditOrderModal(value, record)}>
+        <Select
+          style={{ width: 120 }}
+          onChange={(value) => showEditOrderModal(value, record)}
+        >
           {selectOptions1.map((option, index) => (
             <Option key={index} value={option}>
               {option}
@@ -148,11 +121,8 @@ const doAction = ( record) => {
       dataIndex: "update",
       key: "update",
       render: (_, record) => (
-        <Typography.Link
-        onClick={() => doAction(record)}
-        // onClick={() => showEditProductModal(record)}
-        >
-          <CiDeliveryTruck className="delivery-icon"/>
+        <Typography.Link onClick={() => doAction(record)}>
+          <CiDeliveryTruck className="delivery-icon" />
         </Typography.Link>
       ),
     },
@@ -233,25 +203,18 @@ const doAction = ( record) => {
           </div>
         </div>
 
-
-          <div className="dashboardOrders-bottom">
-            <div>
-              <Button
-                  type="primary"
-                  // onClick={start}
-                  disabled={!hasSelected}
-                  // loading={loading}
-              >
-                Reload
-              </Button>
-              <span style={{ marginLeft: 8 }}>
+        <div className="dashboardOrders-bottom">
+          <div>
+            <Button type="primary" disabled={!hasSelected}>
+              Reload
+            </Button>
+            <span style={{ marginLeft: 8 }}>
               {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
             </span>
-            </div>
+          </div>
           <Table
-              rowSelection={rowSelection}
+            rowSelection={rowSelection}
             columns={columns}
-            // pagination={{ pageSize: 100 }}
             dataSource={data}
             rowKey="_id"
           />

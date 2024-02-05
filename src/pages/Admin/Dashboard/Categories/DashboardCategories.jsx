@@ -1,15 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import "../admin_page/dashboardCategories.css";
+import "../Categories/dashboardCategories.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Input, Modal, Typography } from "antd";
-import { FaTrashAlt } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { FaRegEdit } from "react-icons/fa";
 import { Divider, Table } from "antd";
 import { MdDeleteForever } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from '../../../../config/axiosConfig';
 import { message } from "antd";
 
 const { confirm } = Modal;
@@ -43,23 +42,14 @@ function DashboardCategories() {
 
   useEffect(() => {
       fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
  
 // ---------------------------------AXİOS GET METODU-------------------------------------------------
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/dashboard/brands",
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      );
-
-      console.log(response.data);
-
+      const response = await api.get("/dashboard/brands", );
       setBrands(response.data.data);
     } catch (error) {
       console.error("Error fetching data:", error.message);
@@ -76,7 +66,6 @@ function DashboardCategories() {
   };
 // ---------------------------------SELECET CHANGE-----------------------------------------------------
   const onSelectChange = (newSelectedRowKeys) => {
-    console.log("selectedRowKeys changed: ", newSelectedRowKeys);
     setSelectedRowKeys(newSelectedRowKeys);
   };
 // -----------------------------ROW SELECTION---------------------------------------------------------
@@ -110,16 +99,7 @@ function DashboardCategories() {
 // ----------------------------------AXIOS DELETE METODU-----------------------------------------------
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(
-        `https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/dashboard/brands/${selectedDeleteRecord._id}`,
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
-
-      console.log("Login successful", response.data);
+      const response = await api.delete(`/dashboard/brands/${selectedDeleteRecord._id}`,);
       message.success(response.data.data);
 
       setDeleteModalVisible(false);
@@ -130,21 +110,13 @@ function DashboardCategories() {
   };
 // ----------------------------------AXIOS POST METODU-------------------------------------------------
   const handleAddBrand = async (values) => {
-    
     try {
-      const response = await axios.post(
-        "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/dashboard/brands",
+      const response = await api.post("/dashboard/brands",
         {
           name: name,
         },
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
       );
 
-      console.log("Login successful", response.data);
       message.success(
         "id: " + response.data.data._id + "  brand added successfully"
       );
@@ -158,15 +130,8 @@ function DashboardCategories() {
 // ----------------------------------AXIOS PUT METODU---------------------------------------------------
   const handleEditBrand = async (values) => {
     try {
-      const response = await axios.put(
-        `https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb/dashboard/brands/${selectedEditRecord._id}`,
-        values,
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
+      const response = await api.put(
+        `/dashboard/brands/${selectedEditRecord._id}`, values,);
 
       setEditBrandModalVisible(false);
       message.success(
@@ -179,13 +144,10 @@ function DashboardCategories() {
   };
 
   const onCancel = () => {
-    console.log("Canceling modal");
     addBrandForm.resetFields();
-    console.log("Form fields reset");
     setDeleteModalVisible(false);
     setAddBrandModalVisible(false);
     setEditBrandModalVisible(false);
-    console.log("Modal visibility set to false");
   };
 
   const handleSubmit = (e) => {
@@ -329,9 +291,6 @@ function DashboardCategories() {
                 ]}
               >
                 <Input
-                  // onChange={(e) =>
-                  //   handleInputChange("name", e.target.value)
-                  // }
                 />
               </Form.Item>
 

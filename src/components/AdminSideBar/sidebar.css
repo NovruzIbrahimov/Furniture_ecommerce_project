@@ -81,10 +81,10 @@
 
 @media screen and (max-width: 992px) {
   .close_icon {
-    display: inline; /* Display the close icon in smaller screens */
+    display: inline; 
   }
 
   .sidebar-title span {
-    display: none; /* Hide the span in smaller screens */
+    display: none; 
   }
 }

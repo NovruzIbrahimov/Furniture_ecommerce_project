@@ -330,7 +330,7 @@ function Products() {
                                 </p>
                                 <div className="d-flex  align-items-center"></div>
                                 <Link to={`/cart`}>
-                                  <button className="btn btn-primary mt-3">
+                                  <button className="btn btn-one mt-3">
                                     Add to Cart
                                   </button>
                                 </Link>

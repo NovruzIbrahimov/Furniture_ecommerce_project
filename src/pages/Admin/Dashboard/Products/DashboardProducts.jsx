@@ -270,11 +270,21 @@ function DashboardProducts() {
 
   const handlePreview = async (file) => {};
 
-  const handleChange = ({ fileList }) => {
-    const images = fileList
-      .filter((file) => file.thumbUrl !== null && file.thumbUrl !== undefined)
-      .map((file) => file.thumbUrl);
-    setImageFileList(images, () => {});
+  const fileToBase64 = async (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (e) => reject(e);
+    });
+
+  const handleChange = async ({ fileList }) => {
+    const images = [];
+    for await (const file of fileList) {
+      const base64 = await fileToBase64(file.originFileObj);
+      images.push(base64);
+    }
+    setImageFileList(images);
   };
 
   const dummyRequest = ({ file, onSuccess }) => {
@@ -470,14 +480,12 @@ function DashboardProducts() {
               >
                 <Input value={name} onChange={(e) => setName(e.target.value)} />
               </Form.Item>
-
               <Form.Item label="Product Description" name="productDescription">
                 <Input.TextArea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </Form.Item>
-
               <Form.Item
                 label="Product Price"
                 name="productPrice"
@@ -494,7 +502,6 @@ function DashboardProducts() {
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </Form.Item>
-
               <Form.Item
                 label="Select Brand"
                 name="brand"
@@ -517,14 +524,14 @@ function DashboardProducts() {
                   ))}
                 </Select>
               </Form.Item>
-
+              
               <Form.Item
                 label="Product Images"
                 name="productImages"
                 rules={[
                   {
                     required: true,
-                    message: "Please upload at least one product image!",
+                    message: "Please upload a product image!",
                   },
                 ]}
                 valuePropName="fileList"
@@ -635,7 +642,7 @@ function DashboardProducts() {
                 rules={[
                   {
                     required: true,
-                    message: "Please upload at least one product image!",
+                    message: "Please upload a product image!",
                   },
                 ]}
                 valuePropName="fileList"

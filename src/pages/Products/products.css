@@ -88,7 +88,7 @@ select#sortOptions.form-control {
 
 .card img {
   width: 100%;
-  height: auto;
+  height: 300px;
   object-fit: cover;
   object-position: 50% 30%;
   border-radius: 0;
@@ -173,5 +173,5 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Adjust the height as needed */
+  height: 100vh; 
 }

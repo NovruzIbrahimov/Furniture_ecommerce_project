@@ -162,7 +162,7 @@ function Products() {
       <div className="container">
         {isLoading ? (
           <div className="loading-spinner">
-            <BounceLoader color="#f3f013" size={60} speedMultiplier={2}/>
+            <BounceLoader color="#f3f013" size={60} speedMultiplier={2} />
           </div>
         ) : (
           <>

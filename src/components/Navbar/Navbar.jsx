@@ -79,7 +79,7 @@ function Navbar({ clicked, isClicked }) {
     const transformedData = {
       products: cartItems.map((product) => ({
         productId: product.id,
-        productCount: product.quantity, // You can adjust this count based on your requirements
+        productCount: product.quantity,
       })),
     };
 

@@ -7,8 +7,13 @@ import "../Cart/cart.css";
 import { Table } from "react-bootstrap";
 import { BsX } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import {addToCartLocally, clearCart,removeItem,updateQuantity,} from "../../redux/slice/cartSlice";
-import api from '../../config/axiosConfig';
+import {
+  addToCartLocally,
+  clearCart,
+  removeItem,
+  updateQuantity,
+} from "../../redux/slice/cartSlice";
+import api from "../../config/axiosConfig";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 
@@ -17,13 +22,13 @@ function Cart() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
-  
+
   //---------------------------------order--------------------------------------------
   const createOrder = async (values) => {
-  const filteredProducts = cartItems.filter(product => {
-    const strRepresentation = JSON.stringify(product);
-    return strRepresentation.startsWith('{');
-  });
+    const filteredProducts = cartItems.filter((product) => {
+      const strRepresentation = JSON.stringify(product);
+      return strRepresentation.startsWith("{");
+    });
 
     const transformedData = {
       products: filteredProducts.map((product) => ({
@@ -36,20 +41,18 @@ function Cart() {
       navigate("/login");
     }
 
-
     try {
-      const responses = await api.post(
-        "/site/orders",
-        {
-          products: transformedData.products,
-        },
-      );
+      const responses = await api.post("/site/orders", {
+        products: transformedData.products,
+      });
 
       dispatch(clearCart());
       message.success("Your order has been registered");
       navigate("/products");
     } catch (error) {
-      message.error("We're sorry, but the requested product is currently out of stock");
+      message.error(
+        "We're sorry, but the requested product is currently out of stock"
+      );
       // message.error(responses.data.message);
       console.error("Error creating product:", error.message);
     }
@@ -59,19 +62,16 @@ function Cart() {
     try {
       const response = await api.get("/site/basket");
 
-      
-      const cartItems = response.data.data.map(item =>
-          ({
+      const cartItems = response.data.data.map((item) => ({
         basketId: item._id,
         id: item.productId,
-        image: item.productImage, 
-        title: item.productTitle, 
+        image: item.productImage,
+        title: item.productTitle,
         price: item.productPrice,
         quantity: item.productCount,
-      })
-      );
-      
-      dispatch(addToCartLocally(cartItems)); 
+      }));
+
+      dispatch(addToCartLocally(cartItems));
     } catch (error) {
       console.error("Error fetching cart items:", error.message);
     }
@@ -80,7 +80,6 @@ function Cart() {
   useEffect(() => {
     if (token) {
       fetchCartItems();
-      
     }
   }, [token]);
 
@@ -94,8 +93,8 @@ function Cart() {
 
   const handleRemoveItem = (item) => {
     dispatch(removeItem({ item }));
-    const updatedCartItems = cartItems.filter(item => item.id !== id);
-    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    const updatedCartItems = cartItems.filter((item) => item.id !== id);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
 
   const calculateSubtotal = () => {
@@ -105,6 +104,8 @@ function Cart() {
   const calculateTotal = () => {
     return cartItems.reduce((sum, item) => sum + item.quantity, 0);
   };
+
+  
 
   return (
     <div className="cart-section">

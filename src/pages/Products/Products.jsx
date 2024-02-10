@@ -1,8 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/no-unknown-property */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../Products/products.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaBars } from "react-icons/fa";
@@ -15,13 +11,6 @@ import { FaRegEye } from "react-icons/fa";
 import api from "../../config/axiosConfig";
 import { Pagination } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BounceLoader } from "react-spinners";
-import { css } from "@emotion/react";
-
-const override = css`
-  display: block;
-  margin: 0 auto;
-`;
 
 function Products() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);

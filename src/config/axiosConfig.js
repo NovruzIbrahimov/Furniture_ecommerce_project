@@ -1,7 +1,6 @@
 import axios from 'axios';
-import store from '../redux/store'; // Assuming this is where your Redux store is defined
-import { setLoading } from '../redux/slice/loadingSlice'; // Assuming this is where your loading slice is defined
-
+import store from '../redux/store'; 
+import { setLoading } from '../redux/slice/loadingSlice'; 
 const baseURL = "https://frontend-api-dypw.onrender.com/api/f8ea5b03-9ce6-49c7-8c93-2408a7fa9edb";
 
 const instance = axios.create({
@@ -18,7 +17,7 @@ instance.interceptors.request.use(
     }
     requestsCount++;
     if (requestsCount === 1) {
-      store.dispatch(setLoading(true)); // Dispatch action to set loading state to true
+      store.dispatch(setLoading(true)); 
     }
     return config;
   },
@@ -31,13 +30,13 @@ instance.interceptors.response.use(
   (response) => {
     requestsCount--;
     if (requestsCount === 0) {
-      store.dispatch(setLoading(false)); // Dispatch action to set loading state to false
+      store.dispatch(setLoading(false)); 
     }
     return response;
   },
   (error) => {
     requestsCount--;
-    store.dispatch(setLoading(false)); // Dispatch action to set loading state to false
+    store.dispatch(setLoading(false)); 
     console.error('Error occurred in API request:', error);
 
     const errorMessage = 'An error occurred while processing your request.';

@@ -32,6 +32,7 @@ function Products() {
 
   useEffect(() => {
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     currentPage,
     searchQuery,
@@ -63,6 +64,7 @@ function Products() {
 
   useEffect(() => {
     filterProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedBrands, products]);
 
   const handleFilter = () => {

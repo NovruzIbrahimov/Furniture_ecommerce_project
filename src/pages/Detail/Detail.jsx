@@ -110,9 +110,25 @@ function Detail() {
   //-------------------------------------LOADING----------------------------------------------------
   if (!products) {
     return (
-      <div className="loading-container" style={{ textAlign: "center" }}>
-        <BeatLoader color="#d6bc36" margin={3} />
+      <div className="detail">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 detail-left">
+            <div className="left-detail">
+              <img className="img-fluid" />
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="right-detail">
+              <h1 className="loading-box"></h1>
+              <h2 className="loading-box"></h2>
+              <p className="loading-box"></p>
+            </div>
+          </div>
+        </div>
       </div>
+      </div>
+
     );
   }
 

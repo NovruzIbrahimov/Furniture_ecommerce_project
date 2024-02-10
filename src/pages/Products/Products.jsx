@@ -24,7 +24,6 @@ const override = css`
 `;
 
 function Products() {
-  const [isLoading, setLoading] = useState(true);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
@@ -68,7 +67,6 @@ function Products() {
       const brandsResponse = await api.get("/site/brands");
       setBrandList(brandsResponse.data.data);
 
-      setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
@@ -160,11 +158,6 @@ function Products() {
   return (
     <div className="products-section">
       <div className="container">
-        {isLoading ? (
-          <div className="loading-spinner">
-            <BounceLoader color="#f3f013" size={60} speedMultiplier={2} />
-          </div>
-        ) : (
           <>
             <div className="products-top">
               <div
@@ -330,7 +323,7 @@ function Products() {
                                 </p>
                                 <div className="d-flex  align-items-center"></div>
                                 <Link to={`/cart`}>
-                                  <button className="btn btn-one mt-3">
+                                  <button className="btn btn-primary mt-3">
                                     Add to Cart
                                   </button>
                                 </Link>
@@ -371,7 +364,6 @@ function Products() {
               </Pagination>
             </div>
           </>
-        )}
       </div>
     </div>
   );

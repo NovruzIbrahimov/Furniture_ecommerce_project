@@ -168,6 +168,8 @@ function DashboardProducts() {
       productName: record.title,
       productDescription: record.description,
       productPrice: record.productPrice,
+      brand: record.brandId,
+      productImages: record.images,
     });
   };
   // --------------------------------------HANDLE INPUT CHANGE----------------------------------------
@@ -223,12 +225,10 @@ function DashboardProducts() {
         `/dashboard/products/${selectedEditRecord._id}`,
         {
           title: values.productName,
-          description: values.description,
-          salePrice: values.productPrice,
+          description: values.productDescription,
           productPrice: values.productPrice,
-          brandId: values.brandId,
-          stock: 100,
-          images: values.imageFileList,
+          brandId: values.brand,
+          images: values.productImages,
         }
       );
       fetchData();
@@ -271,12 +271,12 @@ function DashboardProducts() {
   const handlePreview = async (file) => {};
 
   const fileToBase64 = async (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (e) => reject(e);
-  });
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (e) => reject(e);
+    });
 
   const handleChange = async ({ fileList }) => {
     const images = [];
@@ -286,8 +286,6 @@ function DashboardProducts() {
     }
     setImageFileList(images);
   };
-
-
 
   const dummyRequest = ({ file, onSuccess }) => {
     setTimeout(() => {
@@ -572,6 +570,12 @@ function DashboardProducts() {
                 productPrice: selectedEditRecord
                   ? selectedEditRecord.productPrice
                   : "",
+                brand: selectedEditRecord
+                  ? selectedEditRecord.brandId
+                  : undefined,
+                productImages: selectedEditRecord
+                  ? selectedEditRecord.images
+                  : undefined,
               }}
               onFinish={handleEditProduct}
             >

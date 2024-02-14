@@ -270,12 +270,24 @@ function DashboardProducts() {
 
   const handlePreview = async (file) => {};
 
-  const handleChange = ({ fileList }) => {
-    const images = fileList
-      .filter((file) => file.thumbUrl !== null && file.thumbUrl !== undefined)
-      .map((file) => file.thumbUrl);
-    setImageFileList(images, () => {});
+  const fileToBase64 = async (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (e) => reject(e);
+  });
+
+  const handleChange = async ({ fileList }) => {
+    const images = [];
+    for await (const file of fileList) {
+      const base64 = await fileToBase64(file.originFileObj);
+      images.push(base64);
+    }
+    setImageFileList(images);
   };
+
+
 
   const dummyRequest = ({ file, onSuccess }) => {
     setTimeout(() => {

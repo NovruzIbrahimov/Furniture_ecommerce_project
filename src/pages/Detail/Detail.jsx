@@ -42,29 +42,25 @@ function Detail() {
 
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        updateBasket(id, count).then(() => {
-          message.success("updated basket");
-          navigate("/products");
-          window.location.reload();
-        });
+        message.error(error.message);
       }
       console.error("Error creating product:", error.message);
     }
   };
 
-  const updateBasket = async (id, count) => {
-    try {
-      await api.put(`/site/basket/${id}`, {
-        basket: [
-          {
-            productCount: count,
-          },
-        ],
-      });
-    } catch (error) {
-      console.error("Error creating product:", error.message);
-    }
-  };
+  // const updateBasket = async (id, count) => {
+  //   try {
+  //     await api.put(`/site/basket/${id}`, {
+  //       basket: [
+  //         {
+  //           productCount: count,
+  //         },
+  //       ],
+  //     });
+  //   } catch (error) {
+  //     console.error("Error creating product:", error.message);
+  //   }
+  // };
 
   const handleAddToCart = async () => {
     if (products && token) {

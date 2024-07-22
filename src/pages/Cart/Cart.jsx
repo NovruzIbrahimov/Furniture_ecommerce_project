@@ -118,10 +118,10 @@ function Cart() {
                 <tr>
                   <th></th>
                   <th></th>
-                  <th className="custom-th">Product</th>
-                  <th className="custom-th">Price</th>
-                  <th className="custom-th">Quantity</th>
-                  <th className="custom-th">Subtotal</th>
+                  <th className="custom-th">Məhsul</th>
+                  <th className="custom-th">Qiymət</th>
+                  <th className="custom-th">Say</th>
+                  <th className="custom-th">Ara cəmi</th>
                   <th className="custom-th"></th>
                 </tr>
               </thead>
@@ -178,7 +178,7 @@ function Cart() {
               <thead>
                 <tr>
                   <th></th>
-                  <th className="custom-th-custom">Cart totals</th>
+                  <th className="custom-th-custom">Səbət cəmi</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -186,7 +186,7 @@ function Cart() {
               <tbody>
                 <tr>
                   <td></td>
-                  <td className="product-td-product">Subtotal</td>
+                  <td className="product-td-product">Ara cəmi</td>
                   <td className="product-td-product">
                     <span>${calculateSubtotal()}</span>
                   </td>
@@ -194,7 +194,7 @@ function Cart() {
                 </tr>
                 <tr>
                   <td></td>
-                  <td className="product-td-product">Total</td>
+                  <td className="product-td-product">Cəm</td>
                   <td className="product-td-product">
                     <span>{calculateTotal()}</span>
                   </td>
@@ -203,7 +203,7 @@ function Cart() {
                 <tr>
                   <td></td>
                   <td>
-                    <p>Have a coupon?</p>
+                    <p>Kupon var?</p>
                   </td>
                   <td className="product-td-product"></td>
                   <td></td>
@@ -215,7 +215,7 @@ function Cart() {
                       className="checkout"
                       style={{ marginTop: "50px", textAlign: "center" }}
                     >
-                      <button onClick={() => createOrder()}>CHECKOUT</button>
+                      <button onClick={() => createOrder()}>Yoxlamaq</button>
                     </div>
                   </td>
                 </tr>

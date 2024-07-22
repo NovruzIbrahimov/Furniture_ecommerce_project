@@ -79,7 +79,7 @@ function Navbar({ clicked, isClicked }) {
     const transformedData = {
       products: cartItems.map((product) => ({
         productId: product.id,
-        productCount: product.quantity, // You can adjust this count based on your requirements
+        productCount: product.quantity, 
       })),
     };
 
@@ -157,27 +157,27 @@ function Navbar({ clicked, isClicked }) {
         </li>
         <li className="NavElements">
           <NavLink className="Link" to="/">
-            Home
+            Ana səhifə
           </NavLink>
         </li>
         <li className="NavElements">
           <NavLink className="Link" to="/products">
-            Products
+            Məhsullar
           </NavLink>
         </li>
         <li className="NavElements">
           <NavLink className="Link" to="/rooms">
-            Rooms
+            Otaqlar
           </NavLink>
         </li>
         <li className="NavElements">
           <NavLink className="Link" to="/about">
-            About Us
+            Haqqımızda
           </NavLink>
         </li>
         <li className="NavElements">
           <NavLink className="Link" to="/contact">
-            Contact Us
+            Bizimlə əlaqə
           </NavLink>
         </li>
 
@@ -198,7 +198,7 @@ function Navbar({ clicked, isClicked }) {
             <div className="cart-sidebar-menu">
               <div className="cart-sidebar-header d-flex justify-content-between align-items-center mt-3">
                 <div className="cart-sidebar-header-left">
-                  <p>Shopping Cart</p>
+                  <p>Alış-veriş səbəti</p>
                 </div>
                 <div className="cart-sidebar-header-right">
                   <div
@@ -261,7 +261,7 @@ function Navbar({ clicked, isClicked }) {
               <div className="cart-sidebar-footer">
                 <div className="cart-sidebar-footer-top d-flex justify-content-between align-items-center">
                   <div className="footer-top-left">
-                    <p>Subtotal:</p>
+                    <p>Ara cəmi:</p>
                   </div>
                   <div className="footer-top-right">
                     <p>${calculateSubtotal()}</p>
@@ -270,11 +270,11 @@ function Navbar({ clicked, isClicked }) {
                 <div className="cart-sidebar-footer-bottom">
                   <div className="footer-bottom-top">
                     <Link to="/cart" onClick={handleCloseCart}>
-                      VIEW CART
+                      Səbətə bax
                     </Link>
                   </div>
                   <div className="footer-bottom-bottom mt-5">
-                    <button onClick={() => createOrder()}>CHECKOUT</button>
+                    <button onClick={() => createOrder()}>Yoxlamaq</button>
                   </div>
                 </div>
               </div>
@@ -290,7 +290,7 @@ function Navbar({ clicked, isClicked }) {
         {!token && (
           <li className="NavButton">
             <NavLink className="Link link-register" to="/register">
-              Register
+              Qeydiyyat
             </NavLink>
           </li>
         )}
@@ -300,7 +300,7 @@ function Navbar({ clicked, isClicked }) {
             style={{ float: "right", margin: "-8px 2px 1px 2px" }}
           >
             <NavLink className="Link" to="/login">
-              Login
+              Daxil ol
             </NavLink>
           </li>
         )}

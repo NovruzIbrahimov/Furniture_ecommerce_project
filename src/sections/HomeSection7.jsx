@@ -11,28 +11,28 @@ function HomeSection7() {
   return (
     <div className='homesection7'>
       <div className="homesection7-top">
-        <h2>WHY CHOOSE US</h2>
+        <h2>Niyə bizi seçirsiniz</h2>
       </div>
       <div className="container">
         <div className="row">
           <div className="col-lg-3 col-md-6 col-sm-12">
            <img src={Image71} alt="" />
-           <h5>Big Discounts</h5>
+           <h5>Böyük endirimlər</h5>
            <p>Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.</p>
           </div>
           <div className="col-lg-3 col-md-6 col-sm-12">
           <img src={Image72} alt="" />
-           <h5>Big Discounts</h5>
+           <h5>Rahat çatdırılma</h5>
            <p>Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.</p>
           </div>
           <div className="col-lg-3 col-md-6 col-sm-12">
           <img src={Image73} alt="" />
-           <h5>Big Discounts</h5>
+           <h5>Kartla ödəniş</h5>
            <p>Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.</p>
           </div>
           <div className="col-lg-3 col-md-6 col-sm-12">
           <img src={Image74} alt="" />
-           <h5>Big Discounts</h5>
+           <h5>Rahat məkan</h5>
            <p>Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.</p>
           </div>
         </div>

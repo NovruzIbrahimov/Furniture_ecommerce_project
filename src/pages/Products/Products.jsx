@@ -157,7 +157,7 @@ function Products() {
               >
                 <Link to="">
                   <FaBars style={{ marginRight: "8px", fontSize: "16px" }} />
-                  OPTIONS
+                  SEÇİMLƏR
                 </Link>
               </div>
 
@@ -175,15 +175,15 @@ function Products() {
                   <div className="sidebar-top ">
                     <InputGroup className="mb-3">
                       <FormControl
-                        placeholder="Search"
+                        placeholder="Axtarış"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                       />
                     </InputGroup>
                   </div>
                   <div className="sidebar-middle mt-5">
-                    <p>Filter by price</p>
-                    <button onClick={handleFilter}>FILTER</button>
+                    <p>Qiymətə görə filtrləyin</p>
+                    <button onClick={handleFilter}>FİLTR</button>
                     <div className="minMaxInputContainer">
                       <label>
                         Min:
@@ -208,20 +208,20 @@ function Products() {
                     <Form.Group controlId="stockFilter">
                       <Form.Check
                         type="checkbox"
-                        label="In Stock"
+                        label="Stokda olan"
                         checked={inStockFilter}
                         onChange={() => setInStockFilter(!inStockFilter)}
                       />
                       <Form.Check
                         type="checkbox"
-                        label="Out of Stock"
+                        label="Stokda olmayan"
                         checked={outOfStockFilter}
                         onChange={() => setOutOfStockFilter(!outOfStockFilter)}
                       />
                     </Form.Group>
                   </div>
                   <div className="sidebar-bottom mt-4">
-                    <p>Product categories</p>
+                    <p>Məhsul kateqoriyaları</p>
                     <Form.Group controlId="stockFilter">
                       {brandList.map((brand) => (
                         <Form.Check
@@ -239,7 +239,7 @@ function Products() {
 
               <div className="products-top-right">
                 <Form.Group controlId="sortOptions">
-                  <Form.Label>Sort By:</Form.Label>
+                  <Form.Label>Sırala:</Form.Label>
                   <Form.Control
                     as="select"
                     value={selectedSort}
@@ -314,8 +314,8 @@ function Products() {
                                 </p>
                                 <div className="d-flex  align-items-center"></div>
                                 <Link to={`/cart`}>
-                                  <button className="btn btn-primary mt-3">
-                                    Add to Cart
+                                  <button className="btn  mt-3">
+                                    Səbətə əlavə et
                                   </button>
                                 </Link>
                               </div>

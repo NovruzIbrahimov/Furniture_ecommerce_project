@@ -20,7 +20,7 @@ function HomeSection1() {
           <br />
           tincidunt integer.
         </p>
-        <a href="">SHOP NOW</a>
+        <a href="">İndi alış-veriş edin</a>
       </div>
     </div>
   );

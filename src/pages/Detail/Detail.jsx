@@ -153,11 +153,11 @@ function Detail() {
               </div>
               <Link>
                 <button className="btn btn-one mt-3" onClick={handleAddToCart}>
-                  Add to Cart
+                  Səbətə əlavə et
                 </button>
               </Link>
               <Link to={`/cart`}>
-                <button className="btn btn-second mt-3">Go to Cart</button>
+                <button className="btn btn-second mt-3">Səbətə get</button>
               </Link>
             </div>
           </div>
@@ -170,13 +170,13 @@ function Detail() {
           id="uncontrolled-tab-example"
           className="mb-3"
         >
-          <Tab eventKey="description" title="Description">
+          <Tab eventKey="description" title="Təsviri">
             <div className="container">
               <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-12"></div>
                 <div className="col-lg-6 col-md-6 col-sm-12">
                   <div className="description-content">
-                    <h3>Features</h3>
+                    <h3>Xüsusiyyətləri</h3>
                     <p>
                       Ut at ante diam. Vestibulum tincidunt lacus quis odio
                       iaculis, nec iaculis ipsum hendrerit. Curabitur nec
@@ -194,41 +194,40 @@ function Detail() {
               </div>
             </div>
           </Tab>
-          <Tab eventKey="review" title="Review(0)">
+          <Tab eventKey="review" title="Baxış(0)">
             <div className="container">
               <div className="review-content">
                 <h2>Be the first to review “Brown Living Room Sofa”</h2>
                 <p>
-                  Your email address will not be published. Required fields are
-                  marked *
+                E-poçt ünvanınız dərc olunmayacaq. Tələb olunan sahələr qeyd olunub *
                 </p>
                 <Form>
                   <Form.Group
                     className="mb-3"
                     controlId="exampleForm.ControlTextarea1"
                   >
-                    <Form.Label>Example textarea</Form.Label>
+                    <Form.Label>Mətn sahəsi</Form.Label>
                     <Form.Control as="textarea" rows={3} />
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" placeholder="Name" />
+                    <Form.Label>Ad</Form.Label>
+                    <Form.Control type="text" placeholder="Ad" />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Check type="checkbox" label="Yoxlayın" />
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Label>E-poçt</Form.Label>
+                    <Form.Control type="email" placeholder="E-poçtu daxil edin" />
                     <Form.Text className="text-muted">
-                      We'll never share your email with anyone else.
+                    E-poçtunuzu heç vaxt başqası ilə paylaşmayacağıq.
                     </Form.Text>
                   </Form.Group>
 
-                  <Button variant="primary" type="submit">
-                    Submit
+                  <Button  type="submit">
+                    Təqdim et
                   </Button>
                 </Form>
               </div>

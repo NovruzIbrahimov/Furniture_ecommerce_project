@@ -95,10 +95,10 @@ function DashboardOrders() {
 
   const columns = [
     { title: "ID", dataIndex: "_id", key: "_id" },
-    { title: "Order Time", dataIndex: "createdAt", key: "createdAt" },
-    { title: "Name", dataIndex: ["customer", "name"], key: "customerName" },
+    { title: "Sifariş vaxtı", dataIndex: "createdAt", key: "createdAt" },
+    { title: "Ad", dataIndex: ["customer", "name"], key: "customerName" },
     { title: "Status", dataIndex: "status", key: "status" },
-    { title: "Total", dataIndex: "total", key: "total" },
+    { title: "Cəm", dataIndex: "total", key: "total" },
     {
       title: "Action",
       dataIndex: "action",
@@ -117,7 +117,7 @@ function DashboardOrders() {
       ),
     },
     {
-      title: "Update",
+      title: "Yeniləmə",
       dataIndex: "update",
       key: "update",
       render: (_, record) => (
@@ -134,7 +134,7 @@ function DashboardOrders() {
         <div className="dashboardOrders-top">
           <div className="dashboardOrders-top-main">
             <Input
-              placeholder="Search"
+              placeholder="Axtarış"
               style={{ marginRight: 10, width: 220 }}
               onChange={(e) => handleSearch(e.target.value)}
             />
@@ -151,7 +151,7 @@ function DashboardOrders() {
             </Select>
             <Select
               style={{ width: 220, marginRight: 10 }}
-              placeholder="Orders limit"
+              placeholder="Sifariş limiti"
               onChange={(value) => console.log(value)}
             >
               {selectOptions2.map((option, index) => (
@@ -162,7 +162,7 @@ function DashboardOrders() {
             </Select>
             <Select
               style={{ width: 220, marginRight: 10 }}
-              placeholder="Method"
+              placeholder="Metod"
               onChange={(value) => console.log(value)}
             >
               {selectOptions3.map((option, index) => (
@@ -172,7 +172,7 @@ function DashboardOrders() {
               ))}
             </Select>
             <Button style={{ width: 220, backgroundColor: "#10B981" }}>
-              Download All orders
+              Sifarişləri yükləyin
               <IoIosCloudDownload />
             </Button>
           </div>
@@ -182,12 +182,12 @@ function DashboardOrders() {
           <div className="dashboardOrders-middle-main">
             <DatePicker
               style={{ marginRight: 10, width: 380 }}
-              placeholder="Start date"
+              placeholder="Başlama vaxtı"
               onChange={handleDateChange}
             />
             <DatePicker
               style={{ marginRight: 10, width: 380 }}
-              placeholder="End date"
+              placeholder="Bitmə vaxtı"
               onChange={handleDateChange}
             />
             <Button
@@ -197,16 +197,16 @@ function DashboardOrders() {
                 backgroundColor: "#047857",
               }}
             >
-              Filter
+              Filtrləyin
             </Button>
-            <Button style={{ width: 200 }}>Reset</Button>
+            <Button style={{ width: 200 }}>Sıfırlayın</Button>
           </div>
         </div>
 
         <div className="dashboardOrders-bottom">
           <div>
             <Button type="primary" disabled={!hasSelected}>
-              Reload
+              Yenidən yükləyin
             </Button>
             <span style={{ marginLeft: 8 }}>
               {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}

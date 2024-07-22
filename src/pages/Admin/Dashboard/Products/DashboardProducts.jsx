@@ -43,11 +43,11 @@ const columns = [
     ),
   },
   {
-    title: "Product Title",
+    title: "Məhsul adı",
     dataIndex: "title",
   },
   {
-    title: "Description",
+    title: "Təsviri",
     dataIndex: "description",
     render: (text) => (
       <Tooltip title={text}>
@@ -65,15 +65,15 @@ const columns = [
     ),
   },
   {
-    title: "Product Price",
+    title: "Məhsul qiyməti",
     dataIndex: "productPrice",
   },
   {
-    title: "Stock",
+    title: "Stok",
     dataIndex: "stock",
   },
   {
-    title: "Brand Id",
+    title: "Marka Id",
     dataIndex: "brandId",
     render: (text) => (
       <Tooltip title={text}>
@@ -353,7 +353,7 @@ function DashboardProducts() {
               <div className="dashboardProduct-top-main-right">
                 <button className="bt-33" onClick={showAddProductModal}>
                   <FiPlus style={{ marginRight: "6px" }} />
-                  Add Product
+                  Məhsul əlavə et
                 </button>
               </div>
             </div>
@@ -363,7 +363,7 @@ function DashboardProducts() {
             <div className="dashboardProduct-middle-main">
               <div className="middle-main-1">
                 <Input
-                  placeholder="Search Product"
+                  placeholder="Məhsul axtar"
                   className="input-1"
                   value={filterTitle}
                   onChange={handleTitleFilterChange}
@@ -375,7 +375,7 @@ function DashboardProducts() {
                   style={{
                     width: 200,
                   }}
-                  placeholder="Category"
+                  placeholder="Kateqoriya"
                   options={options}
                   onChange={handleCategoryFilterChange}
                 />
@@ -387,7 +387,7 @@ function DashboardProducts() {
                     width: 200,
                   }}
                   onChange={handleSortChange}
-                  placeholder="Price"
+                  placeholder="Qiymət"
                 >
                   <Select.Option key="priceLowToHigh" value="priceLowToHigh">
                     Low to High
@@ -399,10 +399,10 @@ function DashboardProducts() {
               </div>
               <div className="middle-main-4">
                 <button className="bt-44" onClick={fetchData}>
-                  Filter
+                  Filtrləyin
                 </button>
                 <button className="bt-55" onClick={resetFilters}>
-                  Reset
+                  Sıfırlayın
                 </button>
               </div>
             </div>
@@ -416,7 +416,7 @@ function DashboardProducts() {
                 disabled={!hasSelected}
                 loading={loading}
               >
-                Reload
+                Yenidən yükləyin
               </Button>
               <span style={{ marginLeft: 8 }}>
                 {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
@@ -451,14 +451,14 @@ function DashboardProducts() {
           </div>
           {/* --------------------------------DELETE MODAl-----------------------------------*/}
           <Modal
-            title="Delete Products"
+            title="Məhsulları silin"
             open={deleteModalVisible}
             onOk={() => handleDelete(selectedDeleteRecord)}
             onCancel={onCancel}
           ></Modal>
           {/* --------------------------------ADD MODAl-----------------------------------*/}
           <Modal
-            title="Add Product"
+            title="Məhsul əlavə edin"
             open={addProductModalVisible}
             onOk={() => addProductForm.submit()}
             onCancel={onCancel}
@@ -469,7 +469,7 @@ function DashboardProducts() {
               onFinish={handleAddProduct}
             >
               <Form.Item
-                label="Product Title/Name"
+                label="Məhsul adı"
                 name="productName"
                 rules={[
                   {
@@ -481,7 +481,7 @@ function DashboardProducts() {
                 <Input value={name} onChange={(e) => setName(e.target.value)} />
               </Form.Item>
 
-              <Form.Item label="Product Description" name="productDescription">
+              <Form.Item label="Məhsul təsviri" name="productDescription">
                 <Input.TextArea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
@@ -489,7 +489,7 @@ function DashboardProducts() {
               </Form.Item>
 
               <Form.Item
-                label="Product Price"
+                label="Məhsul qiyməti"
                 name="productPrice"
                 rules={[
                   {
@@ -506,7 +506,7 @@ function DashboardProducts() {
               </Form.Item>
 
               <Form.Item
-                label="Select Brand"
+                label="Marka seçin"
                 name="brand"
                 rules={[
                   {
@@ -516,7 +516,7 @@ function DashboardProducts() {
                 ]}
               >
                 <Select
-                  placeholder="Select a brand"
+                  placeholder="Marka seçin"
                   onChange={handleBrandChange}
                   value={brandId}
                 >
@@ -529,7 +529,7 @@ function DashboardProducts() {
               </Form.Item>
 
               <Form.Item
-                label="Product Images"
+                label="Məhsul şəkilləri"
                 name="productImages"
                 rules={[
                   {
@@ -555,7 +555,7 @@ function DashboardProducts() {
           </Modal>
           {/* --------------------------------EDIT MODAl-----------------------------------*/}
           <Modal
-            title="Edit Product"
+            title="Məhsulu redaktə edin"
             onCancel={onCancel}
             open={editProductModalVisible}
             onOk={() => editProductForm.submit()}
@@ -580,7 +580,7 @@ function DashboardProducts() {
               onFinish={handleEditProduct}
             >
               <Form.Item
-                label="Product Title/Name"
+                label="Məhsul adı"
                 name="productName"
                 rules={[
                   {
@@ -596,7 +596,7 @@ function DashboardProducts() {
                 />
               </Form.Item>
 
-              <Form.Item label="Product Description" name="productDescription">
+              <Form.Item label="Məhsul təsviri" name="productDescription">
                 <Input.TextArea
                   onChange={(e) =>
                     handleInputChange("productDescription", e.target.value)
@@ -605,7 +605,7 @@ function DashboardProducts() {
               </Form.Item>
 
               <Form.Item
-                label="Product Price"
+                label="Məhsul qiyməti"
                 name="productPrice"
                 rules={[
                   {
@@ -623,7 +623,7 @@ function DashboardProducts() {
               </Form.Item>
 
               <Form.Item
-                label="Select Brand"
+                label="Marka seçin"
                 name="brand"
                 rules={[
                   {
@@ -633,7 +633,7 @@ function DashboardProducts() {
                 ]}
               >
                 <Select
-                  placeholder="Select a brand"
+                  placeholder="Marka seçin"
                   onChange={handleBrandChange}
                   value={brandId}
                 >
@@ -646,7 +646,7 @@ function DashboardProducts() {
               </Form.Item>
 
               <Form.Item
-                label="Product Images"
+                label="Məhsul şəkilləri"
                 name="productImages"
                 rules={[
                   {

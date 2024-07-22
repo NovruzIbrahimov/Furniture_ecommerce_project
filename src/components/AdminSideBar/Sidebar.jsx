@@ -22,7 +22,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
       <div className="sidebar-title">
         <div className="sidebar-brand">
           <BsCart3 style={{ color: "#1a1a1a", fontSize: "21px" }} />
-          <h3>Shop</h3>
+          <h3>Mağaza</h3>
         </div>
         <span className="icon close_icon" onClick={OpenSidebar}>
           X
@@ -40,7 +40,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             }}
           >
             <BsGrid1X2Fill style={{ color: "#fff" }} />
-            <h3>Dashboard</h3>
+            <h3>İdarə paneli</h3>
           </Link>
         </li>
         <li className="sidebar-list-item">
@@ -53,7 +53,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             }}
           >
             <BsFillArchiveFill style={{ color: "#fff" }} />
-            <h3>Products</h3>
+            <h3>Məhsullar</h3>
           </Link>
         </li>
         <li className="sidebar-list-item">
@@ -66,7 +66,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             }}
           >
             <BsFillGrid3X3GapFill style={{ color: "#fff" }} />
-            <h3>Categories</h3>
+            <h3>Kateqoriyalar</h3>
           </Link>
         </li>
         <li className="sidebar-list-item">
@@ -79,7 +79,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             }}
           >
             <BsPeopleFill style={{ color: "#fff", fontSize: "22px" }} />
-            <h3>Admins</h3>
+            <h3>Adminlər</h3>
           </Link>
         </li>
         <li className="sidebar-list-item">
@@ -92,7 +92,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             }}
           >
             <FaRegCompass style={{ color: "#fff", fontSize: "22px" }} />
-            <h3>Orders</h3>
+            <h3>Sifarişlər</h3>
           </Link>
         </li>
       </ul>

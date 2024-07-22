@@ -47,20 +47,20 @@ const Login = () => {
             <h3 className='text-center'>Login</h3>
             {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
             <div className='mb-2'>
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">E-poçt</label>
               <input
                 type="email"
-                placeholder='Enter Email'
+                placeholder='E-poçtu daxil edin'
                 className='form-control'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className='mb-2'>
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Şifrə</label>
               <input
                 type="password"
-                placeholder='Enter Password'
+                placeholder='Şifrəni daxil edin'
                 className='form-control'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -69,11 +69,11 @@ const Login = () => {
             <div className='mb-2'>
               <input type="checkbox" className='custom-control custom-checkbox' id='check' />
               <label htmlFor="check" className='custom-input-label ms-2'>
-                Remember me
+                Xatırla
               </label>
             </div>
             <div className='d-grid'>
-              <button type="submit" className='btn btn-one'>Login</button>
+              <button type="submit" className='btn btn-one'>Daxil ol</button>
             </div>
           </form>
         </div>

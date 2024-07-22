@@ -8,8 +8,8 @@ function HomeSection6() {
   return (
     <div className='homesection6 mb-5'>
       <div className="homesection6-top mb-5">
-        <h2>WHAT PEOPLE SAY</h2>
-        <a href="">VIEW ALL TESTIMONIAL</a>
+        <h2>İnsanlar nə deyir</h2>
+        <a href="">Bütün sözlərə baxın</a>
       </div>
       <div className="container">
         <div className="row">

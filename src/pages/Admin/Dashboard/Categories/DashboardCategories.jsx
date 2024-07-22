@@ -19,7 +19,7 @@ const columns = [
     render: (text) => <a>{text}</a>,
   },
   {
-    title: "Name",
+    title: "Ad",
     dataIndex: "name",
   },
  
@@ -167,7 +167,7 @@ function DashboardCategories() {
               
               <button className="bt-33-33" onClick={showAddBrandModal}>
                 <FiPlus style={{ marginRight: "6px" }} />
-                Add Category
+                Kateqoriya əlavə edin
               </button>
             </div>
           </div>
@@ -177,13 +177,13 @@ function DashboardCategories() {
           <div className="dashboardCategories-middle-main">
             <div className="middle-main-1-1">
               <Input
-                placeholder="Search by Category name"
+                placeholder="kateqoriya üzrə axtarış"
                 className="input-1-1"
               />
             </div>
             <div className="middle-main-4-4">
-              <button className="bt-44-44">Filter</button>
-              <button className="bt-55-55">Reset</button>
+              <button className="bt-44-44">Filtrləyin</button>
+              <button className="bt-55-55">Sıfırlayın</button>
             </div>
           </div>
         </div>
@@ -196,7 +196,7 @@ function DashboardCategories() {
               disabled={!hasSelected}
               loading={loading}
             >
-              Reload
+              Yenidən yükləyin
             </Button>
             <span style={{ marginLeft: 8 }}>
               {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
@@ -232,14 +232,14 @@ function DashboardCategories() {
           </div>
 {/* --------------------------------DELETE MODAL----------------------------------*/}
           <Modal
-            title="Delete Categories"
+            title="Kateqoriyaları silin"
             open={deleteModalVisible}
             onOk={() => handleDelete(selectedDeleteRecord)}
             onCancel={onCancel}
           ></Modal>
 {/* --------------------------------ADD MODAL----------------------------------*/}
           <Modal
-            title="Add Category"
+            title="Kateqoriya əlavə edin"
             open={addBrandModalVisible}
             onOk={() => addBrandForm.submit()}
             onCancel={onCancel}
@@ -250,7 +250,7 @@ function DashboardCategories() {
               onFinish={handleAddBrand}
             >
               <Form.Item
-                label="Category Name"
+                label="Kateqoriya adı"
                 name="productName"
                 rules={[
                   {
@@ -267,7 +267,7 @@ function DashboardCategories() {
           </Modal>
 {/* --------------------------------EDIT MODAL----------------------------------*/}
           <Modal
-            title="Edit Category"
+            title="Kateqoriyanı redaktə edin"
             open={editBrandModalVisible}
             onOk={() => editBrandForm.submit()}
             onCancel={onCancel}
@@ -281,7 +281,7 @@ function DashboardCategories() {
               onFinish={handleEditBrand}
             >
               <Form.Item
-                label="Category Name"
+                label="Kateqoriya adı"
                 name="name"
                 rules={[
                   {

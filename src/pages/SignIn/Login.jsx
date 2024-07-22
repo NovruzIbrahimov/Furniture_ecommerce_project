@@ -47,25 +47,25 @@ function Login() {
     <div className="login template d-flex justify-content-center align-items-center vh-100">
       <div className="form-container p-5 rounded bg-white">
         <form onSubmit={handleSubmit}>
-          <h3 className="text-center">Login</h3>
+          <h3 className="text-center">Daxil ol</h3>
           {errorMessage && (
             <div className="alert alert-danger">{errorMessage}</div>
           )}
           <div className="mb-2">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">E-poçt</label>
             <input
               type="email"
-              placeholder="Enter Email"
+              placeholder="E-poçtu daxil edin"
               className="form-control"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-2">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Şifrə</label>
             <input
               type="password"
-              placeholder="Enter Password"
+              placeholder="Şifrəni daxil edin"
               className="form-control"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -78,12 +78,12 @@ function Login() {
               id="check"
             />
             <label htmlFor="check" className="custom-input-label ms-2">
-              Remember me
+              Xatırla
             </label>
           </div>
           <div className="d-grid">
             <button type="submit" className="btn btn-one">
-              Login
+              Daxil ol
             </button>
           </div>
         </form>

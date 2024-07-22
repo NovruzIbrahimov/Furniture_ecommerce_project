@@ -23,19 +23,19 @@ const columns = [
     editable: true,
   },
   {
-    title: "Joining Date",
+    title: "Qoşulma tarixi",
     dataIndex: "createdAt",
     width: "20%",
     editable: true,
   },
   {
-    title: "Name",
+    title: "Ad",
     dataIndex: "name",
     width: "25%",
     editable: true,
   },
   {
-    title: "Email",
+    title: "E-poçt",
     dataIndex: "email",
     width: "30%",
     editable: true,
@@ -171,17 +171,17 @@ function DashboardAdmins() {
             <div className="dashboardCustomers-top-main-left">
               <button className="bt-1-11">
                 <CiExport style={{ marginRight: "6px" }} />
-                Export
+                İxrac
               </button>
               <button className="bt-2-22">
                 <CiImport style={{ marginRight: "6px" }} />
-                Import
+                İdxal
               </button>
             </div>
             <div className="dashboardCustomers-top-main-right">
               <button className="bt-33" onClick={showAddAdminModal}>
                 <FiPlus style={{ marginRight: "6px" }} />
-                Add Admin
+                Admin əlavə edin
               </button>
             </div>
           </div>
@@ -191,14 +191,14 @@ function DashboardAdmins() {
           <div className="dashboardCustomers-middle-main">
             <div className="middle-main-1-11">
               <Input
-                placeholder="Search by name/email/phone"
+                placeholder="Axtarış  ad/e-poçt/mobil"
                 className="input-1-11"
                 name="search"
               />
             </div>
             <div className="middle-main-4-44">
-              <button className="bt-44-444">Filter</button>
-              <button className="bt-55-555">Reset</button>
+              <button className="bt-44-444">Filtrləyin</button>
+              <button className="bt-55-555">Sıfırlayın</button>
             </div>
           </div>
         </div>
@@ -244,7 +244,7 @@ function DashboardAdmins() {
         </div>
 {/*-----------------------------------ADD MODAL------------------------------------------ */}
         <Modal
-          title="Add Admin"
+          title="Admin əlavə edin"
           onCancel={onCancel}
           open={addCustomerModalVisible}
           onOk={() => addCustomerForm.submit()}
@@ -255,7 +255,7 @@ function DashboardAdmins() {
             onFinish={handleAddAdmin}
           >
             <Form.Item
-              label="Admin Name"
+              label="Admin ad"
               name="adminName"
               rules={[
                 {
@@ -268,7 +268,7 @@ function DashboardAdmins() {
             </Form.Item>
 
             <Form.Item
-              label="Admin Email"
+              label="Admin e-poçt"
               name="adminEmail"
               rules={[
                 {
@@ -281,7 +281,7 @@ function DashboardAdmins() {
             </Form.Item>
 
             <Form.Item
-              label="Admin Password"
+              label="Admin şifrə"
               name="adminPassword"
               rules={[
                 {
@@ -297,7 +297,7 @@ function DashboardAdmins() {
         </Modal>
 {/*-----------------------------------EDIT MODAL----------------------------------------- */}
         <Modal
-          title="Edit Admin"
+          title="Admin redaktə edin"
           onCancel={onCancel}
           open={editCustomerModalVisible}
           onOk={() => editCustomerForm.submit()}
@@ -310,7 +310,7 @@ function DashboardAdmins() {
             }}
           >
             <Form.Item
-              label="Admin Name"
+              label="Admin ad"
               name="adminName"
               rules={[
                 {
@@ -325,7 +325,7 @@ function DashboardAdmins() {
             </Form.Item>
 
             <Form.Item
-              label="Admin Email"
+              label="Admin e-poçt"
               name="adminEmail"
               rules={[
                 {
@@ -344,7 +344,7 @@ function DashboardAdmins() {
         </Modal>
 {/*-----------------------------------DELETE MODAL--------------------------------------- */}
         <Modal
-          title="Delete Admin"
+          title="Admin silin"
           open={deleteModalVisible}
           onOk={() => handleDelete(selectedDeleteRecord)}
           onCancel={onCancel}

@@ -18,17 +18,17 @@ function HomeSection8() {
         </div>
         <div className="col-lg-6 col-md-6 col-sm-12 homesection8-right">
           <div className="homesection8-right-content">
-            <span>SUBSCRIBE TO OUR NEWSLETTER</span>
+            <span>Xəbərlərimizə abunə olun</span>
             <h2>
-              See The Latest Collection & <br /> Get Special Offer
+              Ən son kolleksiyaya baxın & <br /> Xüsusi təklif alın
             </h2>
             <InputGroup className="mb-3">
               <Form.Control
-                placeholder="Email address"
+                placeholder="E-poçt"
                 aria-label="Recipient's username"
                 aria-describedby="basic-addon2"
               />
-              <InputGroup.Text id="basic-addon2">SUBSCRIBE</InputGroup.Text>
+              <InputGroup.Text id="basic-addon2">Abunə olun</InputGroup.Text>
             </InputGroup>
             <p>Cras interdum lectus velit nibh senectus fringilla ut.</p>
           </div>

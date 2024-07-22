@@ -11,37 +11,37 @@ function Menu() {
         <ul className="NavbarWrappers">
           <li className="NavbarElement">
             <NavLink className="link" to="/">
-              Home
+              Ana səhifə
             </NavLink>
           </li>
           <li className="NavbarElement">
             <NavLink className="link" to="/products">
-              Products
+              Məhsullar
             </NavLink>
           </li>
           <li className="NavbarElement">
             <NavLink className="link" to="/rooms">
-              Rooms
+              Otaqlar
             </NavLink>
           </li>
           <li className="NavbarElement">
             <NavLink className="link" to="/about">
-              About Us
+              Haqqımızda
             </NavLink>
           </li>
           <li className="NavbarElement">
             <NavLink className="link" to="/contact">
-              Contact Us
+              Bizimlə əlaqə
             </NavLink>
           </li>
           <li className="NavbarElement">
             <NavLink className="link" to="/login">
-              Login
+              Daxil ol
             </NavLink>
           </li>
           <li className="Navbutton">
             <NavLink className="linkbtn" to="/register">
-              Register
+              Qeydiyyat
             </NavLink>
           </li>
           <li className="Navbutton">

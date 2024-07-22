@@ -78,10 +78,10 @@ function HomeSection5() {
     <div className="homesection5">
       <div className="homesection5-top">
         <h2>
-          Discover Our <br />
-          Most Selling Products
+          Bizim <br />
+          Ən çox satılan məhsullar
         </h2>
-        <a href="">VIEW ALL BEST SELLERS</a>
+        <a href="">Ən yaxşı satıcılara baxın</a>
       </div>
       <div className="container mb-5">
         <div className="row">

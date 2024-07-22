@@ -22,44 +22,45 @@ function Footer() {
                 <li>3538 Torrance Blvd, Torrance, CA 90503, USA</li>
                 <li>+1 123 456 7890</li>
                 <li>info@example.com</li>
-                <li>Visit Our Store</li>
+                <li>Mağazamızı ziyarət edin</li>
               </ul>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 col-sm-12">
             <div className="section3-top">
-              <h2>Useful Links</h2>
+              <h2>
+              Faydalı Linklər</h2>
             </div>
             <div className="section4-bottom">
               <ul>
-                <li>Home</li>
-                <li>Products</li>
-                <li>Rooms</li>
-                <li>About Us</li>
-                <li>Contact</li>
+                <li>Ana səhifə</li>
+                <li>Məhsullar</li>
+                <li>Otaqlar</li>
+                <li>Haqqımızda</li>
+                <li>Bizimlə əlaqə</li>
               </ul>
             </div>
           </div>
           <div className="col-lg-2 col-md-6 col-sm-12">
             <div className="section5-top">
-              <h2>Rooms</h2>
+              <h2>Otaqlar</h2>
             </div>
             <div className="section6-bottom">
               <ul>
-                <li>Living Room</li>
-                <li>Bedroom</li>
-                <li>Kitchen</li>
-                <li>Bath Room</li>
-                <li>Home Office</li>
+                <li>Oturma otağı</li>
+                <li>Yataq otağı</li>
+                <li>Mətbəx</li>
+                <li>Hamam otağı</li>
+                <li>Ev ofisi</li>
               </ul>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 col-sm-12">
             <div className="section7-top">
-             <h2>Stay In Touch</h2>
+             <h2>Əlaqədə qal</h2>
             </div>
             <div className="section8-bottom">
-             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+             <p>Müştəri çox önəmlidir, müştərini müştəri izləyəcək.</p>
              <i className="icon-main"><FaFacebookSquare/></i>
              <i className="icon-main"><FaTwitterSquare/></i>
              <i className="icon-main"><FaYoutubeSquare/></i>
@@ -68,8 +69,9 @@ function Footer() {
           </div>
         </div>
         <div className="all-footer-second d-flex justify-between align-items-center">
-          <h1>Copyright © 2023 Online Furniture Store</h1>
-          <p style={{marginLeft:'auto'}}>Powered by Online Furniture Store</p>
+          <h1>Copyright © 2023 
+          Onlayn Mebel Mağazası</h1>
+          <p style={{marginLeft:'auto'}}>Onlayn Mebel Mağazası ilə təchiz edilmişdir</p>
         </div>
       </div>
     </div>

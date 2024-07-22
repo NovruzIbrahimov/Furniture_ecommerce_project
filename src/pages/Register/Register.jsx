@@ -43,45 +43,45 @@ function Register() {
     <div className="register template d-flex justify-content-center align-items-center vh-100">
       <div className="form-container p-5 rounded bg-white">
         <form onSubmit={handleSubmit}>
-          <h3 className="text-center">Register</h3>
+          <h3 className="text-center">Qeydiyyat</h3>
           {errorMessage && (
             <div className="alert alert-danger">{errorMessage}</div>
           )}
           <div className="mb-2">
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName">Ad</label>
             <input
               type="text"
-              placeholder="Enter First Name"
+              placeholder="Adı daxil edin"
               className="form-control"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
           <div className="mb-2">
-            <label htmlFor="surname">Surname</label>
+            <label htmlFor="surname">Soyad</label>
             <input
               type="text"
-              placeholder="Enter surname"
+              placeholder="Soyadı daxil edin"
               className="form-control"
               value={surname}
               onChange={(e) => setSurname(e.target.value)}
             />
           </div>
           <div className="mb-2">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">E-poçt</label>
             <input
               type="email"
-              placeholder="Enter Email"
+              placeholder="E-poçtu daxil edin"
               className="form-control"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-2">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Şifrə</label>
             <input
               type="password"
-              placeholder="Enter Password"
+              placeholder="Şifrəni daxil edin"
               className="form-control"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -89,7 +89,7 @@ function Register() {
           </div>
           <div className="d-grid">
             <button type="submit" className="btn btn-one">
-              Register
+              Qeydiyyatdan keç
             </button>
           </div>
         </form>

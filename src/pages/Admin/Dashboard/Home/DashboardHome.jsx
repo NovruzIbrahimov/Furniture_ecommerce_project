@@ -76,28 +76,28 @@ function DashboardHome() {
       <div className="main-cards">
         <div className="card-second">
           <div className="card-inner">
-            <h3>PRODUCTS</h3>
+            <h3>Məhsullar</h3>
             <BsFillArchiveFill className="card_icon" />
           </div>
           <h1>300</h1>
         </div>
         <div className="card-second">
           <div className="card-inner">
-            <h3>CATEGORIES</h3>
+            <h3>Kateqoriyalar</h3>
             <BsFillGrid3X3GapFill className="card_icon" />
           </div>
           <h1>12</h1>
         </div>
         <div className="card-second">
           <div className="card-inner">
-            <h3>CUSTOMERS</h3>
+            <h3>Müştərilər</h3>
             <BsPeopleFill className="card_icon" />
           </div>
           <h1>33</h1>
         </div>
         <div className="card-second">
           <div className="card-inner">
-            <h3>ALERTS</h3>
+            <h3>Xəbərdarlıqlar</h3>
             <BsFillBellFill className="card_icon" />
           </div>
           <h1>42</h1>

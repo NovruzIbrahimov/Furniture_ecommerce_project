@@ -30,7 +30,7 @@ function HomeSection8() {
               />
               <InputGroup.Text id="basic-addon2">Abunə olun</InputGroup.Text>
             </InputGroup>
-            <p>Cras interdum lectus velit nibh senectus fringilla ut.</p>
+            <p>Sabah, bəzən yataq köhnəlmək istəyir.</p>
           </div>
         </div>
       </div>

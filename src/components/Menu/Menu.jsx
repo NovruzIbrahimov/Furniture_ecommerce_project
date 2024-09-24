@@ -20,11 +20,6 @@ function Menu() {
             </NavLink>
           </li>
           <li className="NavbarElement">
-            <NavLink className="link" to="/rooms">
-              Otaqlar
-            </NavLink>
-          </li>
-          <li className="NavbarElement">
             <NavLink className="link" to="/about">
               Haqqımızda
             </NavLink>

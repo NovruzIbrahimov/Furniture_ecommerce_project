@@ -50,7 +50,6 @@ function Cart() {
       navigate("/products");
     } catch (error) {
       message.error("We're sorry, but the requested product is currently out of stock");
-      // message.error(responses.data.message);
       console.error("Error creating product:", error.message);
     }
   };
@@ -136,7 +135,7 @@ function Cart() {
                       <p>{item.title}</p>
                     </td>
                     <td className="product-td">
-                      <span>${item.price}</span>
+                      <span>{item.price}AZN</span>
                     </td>
                     <td className="product-td">
                       <div className="d-flex  align-items-center">
@@ -156,7 +155,7 @@ function Cart() {
                       </div>
                     </td>
                     <td className="product-td">
-                      <span>${item.price * item.quantity}</span>
+                      <span>{item.price * item.quantity}AZN</span>
                     </td>
                     <td className="product-td">
                       <i
@@ -170,7 +169,7 @@ function Cart() {
                 ))}
               </tbody>
             </Table>
-            {cartItems.length === 0 && <h2>Card is Empty</h2>}
+            {cartItems.length === 0 && <h2>Səbətiniz boşdur</h2>}
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
@@ -188,7 +187,7 @@ function Cart() {
                   <td></td>
                   <td className="product-td-product">Ara cəmi</td>
                   <td className="product-td-product">
-                    <span>${calculateSubtotal()}</span>
+                    <span>{calculateSubtotal()}AZN</span>
                   </td>
                   <td></td>
                 </tr>

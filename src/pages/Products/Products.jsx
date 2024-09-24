@@ -272,7 +272,7 @@ function Products() {
                       </p>
                       <h2>{products.title}</h2>
                       <h2>Stock: {products.stock}</h2>
-                      <span>${products.productPrice}</span>
+                      <span>{products.productPrice}AZN</span>
                     </div>
 
                     <div className="icons-container">
@@ -308,7 +308,7 @@ function Products() {
                             <div className="col-md-6">
                               <div className="right-detail">
                                 <h1>{products.title}</h1>
-                                <h2>${products.productPrice}</h2>
+                                <h2>{products.productPrice}AZN</h2>
                                 <p className="single-line1">
                                   {products.description}
                                 </p>

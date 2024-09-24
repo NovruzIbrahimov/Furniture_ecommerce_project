@@ -1,0 +1,84 @@
+.contact-section .container {
+  padding: 3rem 0;
+}
+
+.contactSection h2 {
+  color: #1a1a1a;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.contactSection p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #6c6c6c;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.list-unstyled {
+  padding-left: 0;
+}
+
+.list-unstyled li {
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.list-unstyled strong {
+  color: #edb932;
+}
+
+.contact-form h2 {
+  color: #1a1a1a;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+iframe {
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+form {
+  margin-top: 2rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #6c6c6c;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 0.75rem;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 1px solid #ced4da;
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+button.btn-submit {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  background-color: #edb932;
+  color: #ffffff;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-submit:hover {
+  background-color: #eb9320;
+}

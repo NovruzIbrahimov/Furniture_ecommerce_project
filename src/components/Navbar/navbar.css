@@ -17,7 +17,7 @@
   float: left;
   font-size: 25px;
   font-weight: 900;
-  margin: -8px 2px 1px 15px;
+  margin: -25px 0px 0px 0px;
   transition: 0.2s ease-in;
 }
 .NavElements {
@@ -113,7 +113,6 @@
     left: 42%;
   }
   .NavLogo {
-    margin: 0;
     transition: 0.2s ease-in-out;
   }
 }

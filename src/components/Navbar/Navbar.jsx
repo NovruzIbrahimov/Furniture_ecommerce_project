@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { ImCross } from "react-icons/im";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
-import Image from "../../assets/kayuu-logo-white.svg";
+import Image from "../../assets/logoo.png";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsX } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
@@ -151,7 +151,7 @@ function Navbar({ clicked, isClicked }) {
             <img
               src={Image}
               alt=""
-              style={{ width: "100px", height: "20px" }}
+              style={{ width: "140px" }}
             />
           </Link>
         </li>
@@ -163,11 +163,6 @@ function Navbar({ clicked, isClicked }) {
         <li className="NavElements">
           <NavLink className="Link" to="/products">
             Məhsullar
-          </NavLink>
-        </li>
-        <li className="NavElements">
-          <NavLink className="Link" to="/rooms">
-            Otaqlar
           </NavLink>
         </li>
         <li className="NavElements">
@@ -249,7 +244,7 @@ function Navbar({ clicked, isClicked }) {
                             </button>
                           </div>
                           <div className="right-bottom-right">
-                            <p>${item.price}</p>
+                            <p>{item.price}AZN</p>
                           </div>
                         </div>
                       </div>
@@ -264,7 +259,7 @@ function Navbar({ clicked, isClicked }) {
                     <p>Ara cəmi:</p>
                   </div>
                   <div className="footer-top-right">
-                    <p>${calculateSubtotal()}</p>
+                    <p>{calculateSubtotal()}AZN</p>
                   </div>
                 </div>
                 <div className="cart-sidebar-footer-bottom">

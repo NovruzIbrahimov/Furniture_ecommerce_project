@@ -2,7 +2,6 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Products from "./pages/Products/Products";
-import Rooms from "./pages/Rooms/Rooms";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Login from "./pages/SignIn/Login";
@@ -25,7 +24,6 @@ function App() {
       <Routes>
         <Route exact path="" element={<Layout><Home /></Layout>} />
         <Route exact path="products" element={<Layout><Products /></Layout>} />
-        <Route exact path="rooms" element={<Layout><Rooms /></Layout>} />
         <Route exact path="about" element={<Layout><About /></Layout>} />
         <Route exact path="contact" element={<Layout><Contact /></Layout>} />
         <Route exact path="login" element={<Layout><Login /></Layout>} />

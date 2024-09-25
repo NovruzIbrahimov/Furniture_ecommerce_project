@@ -9,7 +9,7 @@
   color: #1a1a1a;
   font-weight: bold;
 }
-.homesection6-top a {
+.homesection6-top a.Link {
   cursor: pointer;
   text-decoration: none;
   padding: 6px 8px 6px 8px;

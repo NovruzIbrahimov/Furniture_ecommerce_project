@@ -95,7 +95,7 @@ function HomeSection3() {
                   <h2 className="single-line" id={`title_${products._id}`}>
                     {products.title}
                   </h2>
-                  <span>{products.productPrice}AZN</span>
+                  <span>{products.productPrice} AZN</span>
                 </div>
 
                 <div className="icons-container">
@@ -132,7 +132,7 @@ function HomeSection3() {
                         <div className="col-md-6">
                           <div className="right-detail">
                             <h1>{products.title}</h1>
-                            <h2>{products.productPrice}AZN</h2>
+                            <h2>{products.productPrice} AZN</h2>
                             <p className="single-line1">
                               {products.description}
                             </p>

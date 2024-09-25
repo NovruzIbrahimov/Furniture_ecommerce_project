@@ -18,22 +18,22 @@ function HomeSection7() {
           <div className="col-lg-3 col-md-6 col-sm-12">
            <img src={Image71} alt="" />
            <h5>Böyük endirimlər</h5>
-           <p>Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.</p>
+           <p>Holl.az onlayn mebel mağazasında yataq dəstindən yumşaq mebelə qədər sərfəli və keyfiyyətli ev mebeli ala bilərsiniz.</p>
           </div>
           <div className="col-lg-3 col-md-6 col-sm-12">
           <img src={Image72} alt="" />
            <h5>Rahat çatdırılma</h5>
-           <p>Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.</p>
+           <p>Holl.az onlayn mebel mağazasında yataq dəstindən yumşaq mebelə qədər sərfəli və keyfiyyətli ev mebeli ala bilərsiniz.</p>
           </div>
           <div className="col-lg-3 col-md-6 col-sm-12">
           <img src={Image73} alt="" />
            <h5>Kartla ödəniş</h5>
-           <p>Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.</p>
+           <p>Holl.az onlayn mebel mağazasında yataq dəstindən yumşaq mebelə qədər sərfəli və keyfiyyətli ev mebeli ala bilərsiniz.</p>
           </div>
           <div className="col-lg-3 col-md-6 col-sm-12">
           <img src={Image74} alt="" />
            <h5>Rahat məkan</h5>
-           <p>Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.</p>
+           <p>Holl.az onlayn mebel mağazasında yataq dəstindən yumşaq mebelə qədər sərfəli və keyfiyyətli ev mebeli ala bilərsiniz.</p>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ function Footer() {
               <ul>
                 <li>Q.Məmmədov 123, Bakı, Azərbaycan</li>
                 <li>(+994) 051 858 58 00</li>
-                <li>info@example.com</li>
+                <li>info@holl.az</li>
                 <li>Mağazamızı ziyarət edin</li>
               </ul>
             </div>
@@ -71,7 +71,7 @@ function Footer() {
         <div className="all-footer-second d-flex justify-between align-items-center">
           <h1>Müəllif hüququ © 2023 
           Onlayn Mebel Mağazası</h1>
-          <p style={{marginLeft:'auto'}}>Sayt Novruz İbrahimov tərəfindən yaradılmışdır.</p>
+          <p style={{marginLeft:'auto'}}> The site was created by <a href="https://www.linkedin.com/in/novruz-ibrahimov-80a45a288/" target="_blank" rel="noopener noreferrer">Novruz Ibrahimov</a>.</p>
         </div>
       </div>
     </div>

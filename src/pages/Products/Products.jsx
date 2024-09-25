@@ -106,16 +106,16 @@ function Products() {
     const sorted = [...filteredProducts];
 
     switch (sortOption) {
-      case "A to Z":
+      case "A-dan Z-yə":
         sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
-      case "Z to A":
+      case "Z-dən A-ya":
         sorted.sort((a, b) => b.title.localeCompare(a.title));
         break;
-      case "Low to High":
+      case "Ucuzdan bahalıya":
         sorted.sort((a, b) => a.productPrice - b.productPrice);
         break;
-      case "High to Low":
+      case "Bahalıdan ucuza":
         sorted.sort((a, b) => b.productPrice - a.productPrice);
         break;
       default:
@@ -245,10 +245,10 @@ function Products() {
                     value={selectedSort}
                     onChange={(e) => handleSort(e.target.value)}
                   >
-                    <option>A to Z</option>
-                    <option>Z to A</option>
-                    <option>Low to High</option>
-                    <option>High to Low</option>
+                    <option>A-dan Z-yə</option>
+                    <option>Z-dən A-ya</option>
+                    <option>Ucuzdan bahalıya</option>
+                    <option>Bahalıdan ucuza</option>
                   </Form.Control>
                 </Form.Group>
               </div>
@@ -272,7 +272,7 @@ function Products() {
                       </p>
                       <h2>{products.title}</h2>
                       <h2>Stock: {products.stock}</h2>
-                      <span>{products.productPrice}AZN</span>
+                      <span>{products.productPrice} AZN</span>
                     </div>
 
                     <div className="icons-container">
@@ -308,7 +308,7 @@ function Products() {
                             <div className="col-md-6">
                               <div className="right-detail">
                                 <h1>{products.title}</h1>
-                                <h2>{products.productPrice}AZN</h2>
+                                <h2>{products.productPrice} AZN</h2>
                                 <p className="single-line1">
                                   {products.description}
                                 </p>

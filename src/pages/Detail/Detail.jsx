@@ -140,7 +140,7 @@ function Detail() {
           <div className="col-md-6">
             <div className="right-detail">
               <h1>{products.title}</h1>
-              <h2>{products.productPrice}AZN</h2>
+              <h2>{products.productPrice} AZN</h2>
               <p>{products.description}</p>
               <div className="d-flex  align-items-center">
                 <button className="btn " onClick={decrement}>

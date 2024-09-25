@@ -135,7 +135,7 @@ function Cart() {
                       <p>{item.title}</p>
                     </td>
                     <td className="product-td">
-                      <span>{item.price}AZN</span>
+                      <span>{item.price} AZN</span>
                     </td>
                     <td className="product-td">
                       <div className="d-flex  align-items-center">
@@ -155,7 +155,7 @@ function Cart() {
                       </div>
                     </td>
                     <td className="product-td">
-                      <span>{item.price * item.quantity}AZN</span>
+                      <span>{item.price * item.quantity} AZN</span>
                     </td>
                     <td className="product-td">
                       <i
@@ -187,7 +187,7 @@ function Cart() {
                   <td></td>
                   <td className="product-td-product">Ara cəmi</td>
                   <td className="product-td-product">
-                    <span>{calculateSubtotal()}AZN</span>
+                    <span>{calculateSubtotal()} AZN</span>
                   </td>
                   <td></td>
                 </tr>

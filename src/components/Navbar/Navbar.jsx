@@ -244,7 +244,7 @@ function Navbar({ clicked, isClicked }) {
                             </button>
                           </div>
                           <div className="right-bottom-right">
-                            <p>{item.price}AZN</p>
+                            <p>{item.price} AZN</p>
                           </div>
                         </div>
                       </div>
@@ -259,7 +259,7 @@ function Navbar({ clicked, isClicked }) {
                     <p>Ara cəmi:</p>
                   </div>
                   <div className="footer-top-right">
-                    <p>{calculateSubtotal()}AZN</p>
+                    <p>{calculateSubtotal()} AZN</p>
                   </div>
                 </div>
                 <div className="cart-sidebar-footer-bottom">

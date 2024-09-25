@@ -4,7 +4,7 @@ import "../sections/homesection5.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, NavLink } from "react-router-dom";
 import { FaRegEye, FaShoppingCart } from "react-icons/fa";
-import api from '../config/axiosConfig';
+import api from "../config/axiosConfig";
 
 function HomeSection5() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -30,7 +30,7 @@ function HomeSection5() {
       limitLetters(`brandId1_${products._id}`, 20);
       limitLetters(`title2_${products._id}`, 25);
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getBrandName = (brandId) => {
@@ -40,15 +40,15 @@ function HomeSection5() {
 
   const fetchData = async () => {
     try {
+      const response = await api.get(
+        "/site/products?page=1&perPage=8&minPrice=&maxPrice=&search=&stock=inStock"
+      );
 
-      const response = await api.get("/site/products?page=1&perPage=8&minPrice=&maxPrice=&search=&stock=inStock");
-      
       setProducts(response.data.data.product);
 
       const brandsResponse = await api.get("/site/brands");
-      
-      setBrandList(brandsResponse.data.data);
 
+      setBrandList(brandsResponse.data.data);
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
@@ -81,7 +81,10 @@ function HomeSection5() {
           Bizim <br />
           Ən çox satılan məhsullar
         </h2>
-        <a href="">Ən yaxşı satıcılara baxın</a>
+        <NavLink className="Link" to="/about">
+          Ən yaxşı satıcılara baxın
+        </NavLink>
+        {/* <a href="">Ən yaxşı satıcılara baxın</a> */}
       </div>
       <div className="container mb-5">
         <div className="row">
@@ -93,12 +96,14 @@ function HomeSection5() {
                 </NavLink>
                 <div className="card-body">
                   <p className="single-line11" id={`brandId1_${products._id}`}>
-                  {brandList.length ? getBrandName(products.brandId) : "Loading..."}
+                    {brandList.length
+                      ? getBrandName(products.brandId)
+                      : "Loading..."}
                   </p>
                   <h2 className="single-line22" id={`title2_${products._id}`}>
                     {products.title}
                   </h2>
-                  <span>{products.productPrice}AZN</span>
+                  <span>{products.productPrice} AZN</span>
                 </div>
                 <div className="icons-container">
                   <div className="icon shopping-cart-icon">
@@ -134,7 +139,7 @@ function HomeSection5() {
                         <div className="col-md-6">
                           <div className="right-detail">
                             <h1>{products.title}</h1>
-                            <h2>{products.productPrice}AZN</h2>
+                            <h2>{products.productPrice} AZN</h2>
                             <p className="single-line1">
                               {products.description}
                             </p>

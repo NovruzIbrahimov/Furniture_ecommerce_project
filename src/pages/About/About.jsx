@@ -2,6 +2,10 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import "../../pages/About/about.css";
+import ImageIntro from "../../assets/furnitureIntro.jpg";
+import ImageDesign from "../../assets/customDesign.png";
+import ImageFast from "../../assets/fastD.png";
+import ImageCustom from "../../assets/customerSupport.png";
 
 function About() {
   return (
@@ -23,7 +27,7 @@ function About() {
           </div>
           <div className="col-lg-6 col-md-12 aboutSection-right">
             <img
-              src="src/assets/furnitureIntro.jpg"
+              src={ImageIntro}
               alt="About Us"
               className="img-fluid rounded"
             />
@@ -77,7 +81,7 @@ function About() {
           <div className="col-md-12 col-lg-4 col-sm-12 offerSection-card">
             <div className="card">
               <img
-                src="src/assets/customDesign.png"
+                src={ImageDesign}
                 className="card-img-top"
                 alt="Custom Design"
               />
@@ -92,7 +96,7 @@ function About() {
           <div className="col-md-12 col-lg-4 col-sm-12 offerSection-card">
             <div className="card">
               <img
-                src="src/assets/fastD.png"
+                src={ImageFast}
                 className="card-img-top"
                 alt="Fast Delivery"
               />
@@ -108,7 +112,7 @@ function About() {
           <div className="col-md-12 col-lg-4 col-sm-12 offerSection-card">
             <div className="card">
               <img
-                src="src/assets/customerSupport.png"
+                src={ImageCustom}
                 className="card-img-top"
                 alt="Customer Support"
               />

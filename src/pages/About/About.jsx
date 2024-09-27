@@ -8,6 +8,18 @@ import ImageFast from "../../assets/fastD.png";
 import ImageCustom from "../../assets/customerSupport.png";
 
 function About() {
+  const text = "Sizin şəxsi zövqünüzə uyğun olaraq unikallığı təmin edir";
+  const text2 =
+    "Biz qapınızın ağzına qədər sürətli və təhlükəsiz çatdırılmaya zəmanət veririk.";
+  const text3 =
+    "Bizim xüsusi müştəri dəstək komandamız hər hansı bir sorğu ilə sizə kömək etməyə həmişə hazırdır.";
+
+  const trimTitle = (title, maxLength) => {
+    return title.length > maxLength
+      ? title.substring(0, maxLength) + "..."
+      : title;
+  };
+
   return (
     <div className="aboutSection">
       <div className="container py-5">
@@ -87,9 +99,7 @@ function About() {
               />
               <div className="card-body">
                 <h5 className="card-title">Xüsusi Dizaynlar</h5>
-                <p className="card-text">
-                  Sizin şəxsi zövqünüzə uyğun olaraq unikallığı təmin edir
-                </p>
+                <p className="card-text">{trimTitle(text, 50)}</p>
               </div>
             </div>
           </div>
@@ -102,10 +112,7 @@ function About() {
               />
               <div className="card-body">
                 <h5 className="card-title">Sürətli Çatdırılma</h5>
-                <p className="card-text">
-                  Biz qapınızın ağzına qədər sürətli və təhlükəsiz çatdırılmaya
-                  zəmanət veririk.
-                </p>
+                <p className="card-text">{trimTitle(text2, 50)}</p>
               </div>
             </div>
           </div>
@@ -118,10 +125,7 @@ function About() {
               />
               <div className="card-body">
                 <h5 className="card-title">Müştəri dəstəyi</h5>
-                <p className="card-text">
-                  Bizim xüsusi müştəri dəstək komandamız hər hansı bir sorğu ilə
-                  sizə kömək etməyə həmişə hazırdır.
-                </p>
+                <p className="card-text">{trimTitle(text3, 50)}</p>
               </div>
             </div>
           </div>

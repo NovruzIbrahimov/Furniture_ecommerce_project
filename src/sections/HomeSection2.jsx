@@ -11,12 +11,12 @@ function HomeSection2() {
     <div className="homesection2">
       <div className="container">
         <div className="row">
-          <div className="left2 col-lg-7 col-md-12 col-sm-12">
+          <div className="left2 col-xl-6 col-lg-12 col-md-12 col-sm-12">
             <div className="left2-box">
               <img src={Image3} alt="" />
             </div>
           </div>
-          <div className="right2 col-lg-5 col-md-12 col-sm-12">
+          <div className="right2 col-xl-6 col-lg-12 col-md-12 col-sm-12">
             <div className="right2-box">
               <span>Yeni kolleksiya</span>
               <h2>

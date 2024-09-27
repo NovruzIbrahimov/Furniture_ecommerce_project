@@ -84,7 +84,6 @@ function HomeSection5() {
         <NavLink className="Link" to="/about">
           Ən yaxşı satıcılara baxın
         </NavLink>
-        {/* <a href="">Ən yaxşı satıcılara baxın</a> */}
       </div>
       <div className="container mb-5">
         <div className="row">

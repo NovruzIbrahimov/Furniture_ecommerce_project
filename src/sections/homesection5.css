@@ -1,5 +1,5 @@
 .homesection5-top {
-  padding: 30px 80px 30px 80px;
+  padding: 30px 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,16 +17,97 @@
   background-color: #edb932;
   color: #1a1a1a;
   font-weight: bold;
+  transition: 0.5s;
 }
-
 .homesection5-top a.Link:hover {
   cursor: pointer;
   text-decoration: none;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 20px;
   border: 1px solid #edb932;
   background-color: #edb932;
   color: #1a1a1a;
   font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .homesection5-top {
+    padding: 30px 50px;
+  }
+  .homesection5-top h2 {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 992px) {
+  .homesection5-top {
+    padding: 30px 30px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .homesection5-top h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .homesection5-top a.Link {
+    padding: 10px 20px;
+  }
+  .homesection5-top a.Link:hover {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid #edb932;
+    background-color: #edb932;
+    color: #1a1a1a;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 768px) {
+  .homesection5-top {
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+  .homesection5-top h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  .homesection5-top a.Link {
+    padding: 10px 15px;
+  }
+  .homesection5-top a.Link:hover {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid #edb932;
+    background-color: #edb932;
+    color: #1a1a1a;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 576px) {
+  .homesection5-top {
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .homesection5-top h2 {
+    font-size: 28px;
+  }
+  .homesection5-top a.Link {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  .homesection5-top a.Link:hover {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 8px 10px;
+    border: 1px solid #edb932;
+    background-color: #edb932;
+    color: #1a1a1a;
+    font-weight: bold;
+  }
 }
 
 .card {

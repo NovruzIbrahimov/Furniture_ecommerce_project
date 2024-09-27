@@ -11,12 +11,12 @@ function HomeSection8() {
     <div className="homesection8">
       <div className="container mb-3">
       <div className="row">
-        <div className="col-lg-6 col-md-6 col-sm-12 homesection8-left">
+        <div className="col-lg-6 col-md-12 col-sm-12 homesection8-left">
           <div className="homesection8-left-content">
             <img src={Image8} alt="" style={{width:'100%'}} />
           </div>
         </div>
-        <div className="col-lg-6 col-md-6 col-sm-12 homesection8-right">
+        <div className="col-lg-6 col-md-12 col-sm-12 homesection8-right">
           <div className="homesection8-right-content">
             <span>Xəbərlərimizə abunə olun</span>
             <h2>

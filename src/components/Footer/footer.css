@@ -21,7 +21,7 @@ ul li {
   margin: -27px 0px 0px 0px;
 }
 .section2-bottom {
-  margin-top: 44px;
+  margin-top: 14px;
 }
 .section3-top h2 {
   font-size: 28px;
@@ -43,22 +43,41 @@ ul li {
 }
 .section8-bottom p {
   font-size: 20px;
-  margin-bottom: 35px;
+  margin-bottom: 11px;
 }
 .all-footer-second h1,
 p {
   font-size: 20px;
+  margin: 0;
+}
+.all-footer-second .footer-second-right a {
+  color: #edb932;
+  text-decoration: none;
+  white-space: nowrap; 
 }
 .all-footer-second {
   padding: 40px 0 0 0;
 }
 .section8-bottom i.icon-main {
+  font-size: 25px;
+  cursor: pointer;
   padding: 12px;
-  margin: 0 10px 0 0;
+  margin: 0 3px 0 0;
   border: 1px solid #ffffff1a;
   background-color: #ffffff1a;
 }
-.section8-bottom i.icon-main {
-  font-size: 25px;
-  cursor: pointer;
+
+@media (max-width: 375px) {
+  .all-footer-second h1, .all-footer-second p {
+    font-size: 16px; /* Decrease font size for better fit */
+  }
+
+  .all-footer-second p {
+    line-height: 1.4; /* Adjust line height for better readability */
+    margin: 10px 0;   /* Add some space between text lines */
+  }
+
+  .all-footer-second {
+    padding: 20px 0;  /* Reduce padding for better space utilization */
+  }
 }

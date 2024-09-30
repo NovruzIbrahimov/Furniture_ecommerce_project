@@ -42,11 +42,11 @@ const Login = () => {
   
     return (
       <div className='admin-login d-flex justify-content-center align-items-center vh-100'>
-        <div className="form-container p-5 rounded bg-white">
+        <div className="col-10 col-sm-8 col-md-6 col-lg-4 form-container p-5 rounded bg-white">
           <form onSubmit={handleSubmit}>
             <h3 className='text-center'>Login</h3>
             {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-            <div className='mb-2'>
+            <div className='mb-3'>
               <label htmlFor="email">E-poçt</label>
               <input
                 type="email"
@@ -56,7 +56,7 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className='mb-2'>
+            <div className='mb-3'>
               <label htmlFor="password">Şifrə</label>
               <input
                 type="password"
@@ -65,12 +65,6 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-            </div>
-            <div className='mb-2'>
-              <input type="checkbox" className='custom-control custom-checkbox' id='check' />
-              <label htmlFor="check" className='custom-input-label ms-2'>
-                Xatırla
-              </label>
             </div>
             <div className='d-grid'>
               <button type="submit" className='btn btn-one'>Daxil ol</button>

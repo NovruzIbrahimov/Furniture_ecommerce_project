@@ -88,7 +88,7 @@ function HomeSection5() {
       <div className="container mb-5">
         <div className="row">
           {products.map((products) => (
-            <div className="col-md-6 col-lg-3 col-sm-12" key={products._id}>
+            <div className="col-md-6 col-xl-3 col-lg-6 col-sm-12" key={products._id}>
               <div className="card shadow-lg">
                 <NavLink to={`/detail/${products._id}`}>
                   <img src={products.images[0].url} alt="" />

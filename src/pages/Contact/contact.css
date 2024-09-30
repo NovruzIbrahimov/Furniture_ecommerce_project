@@ -1,4 +1,4 @@
-.contact-section .container {
+.contact-section {
   padding: 3rem 0;
 }
 
@@ -81,4 +81,43 @@ button.btn-submit {
 
 button.btn-submit:hover {
   background-color: #eb9320;
+}
+
+@media (max-width: 768px) {
+  .contactSection h2,
+  .contact-form h2 {
+    font-size: 2rem;
+  }
+
+  .contactSection p {
+    font-size: 1rem;
+  }
+
+  .list-unstyled li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contactSection h2,
+  .contact-form h2 {
+    font-size: 1.75rem;
+  }
+
+  .contactSection p {
+    font-size: 0.95rem;
+  }
+
+  .list-unstyled li {
+    font-size: 0.95rem;
+  }
+
+  .form-control {
+    padding: 0.6rem;
+  }
+
+  button.btn-submit {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
 }

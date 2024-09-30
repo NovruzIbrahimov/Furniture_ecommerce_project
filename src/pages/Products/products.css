@@ -9,6 +9,7 @@
   border: 2px solid #ccc;
   padding: 0 25px 25px 25px;
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 .products-top {
@@ -154,17 +155,17 @@ input {
   margin-top: 5px;
 }
 
-.pagination{
+.pagination {
   outline: none;
   box-shadow: none;
 }
 
-.page-item{
+.page-item {
   outline: none;
   box-shadow: none;
 }
 
-.page-link{
+.page-link {
   outline: none;
   box-shadow: none;
 }
@@ -173,7 +174,5 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
+  height: 100vh;
 }
-
-

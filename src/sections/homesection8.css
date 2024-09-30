@@ -18,9 +18,102 @@
   font-size: 18px;
   color: #6c6c6c;
 }
+input.form-control {
+  margin-top: 0px;
+}
 #basic-addon2 {
   background-color: #edb932;
   color: #ffffff;
+  padding: 0px 4px;
+}
+#basic-addon2.input-group-text {
+  cursor: pointer;
 }
 
+@media (max-width: 1200px) {
+  .homesection8-right-content {
+    padding: 30px 0 0 30px;
+  }
 
+  .homesection8-right-content h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 992px) {
+  .homesection8-right-content {
+    padding: 20px 0 0 20px;
+  }
+
+  .homesection8-right-content h2 {
+    font-size: 32px;
+  }
+
+  input.form-control {
+    padding: 10px;
+  }
+
+  #basic-addon2 {
+    padding: 0px 6px;
+  }
+  #basic-addon2.input-group-text {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 768px) {
+  .homesection8-right-content {
+    padding: 15px 0 0 15px;
+  }
+
+  .homesection8-right-content h2 {
+    font-size: 28px;
+  }
+
+  .homesection8-right-content span {
+    font-size: 16px;
+  }
+
+  input.form-control {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  #basic-addon2 {
+    padding: 0px 8px;
+  }
+  #basic-addon2.input-group-text {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 576px) {
+  .homesection8-right-content {
+    padding: 10px 0 0 10px;
+  }
+
+  .homesection8-right-content h2 {
+    font-size: 20px;
+  }
+
+  .homesection8-right-content span {
+    font-size: 14px;
+  }
+
+  input.form-control {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  #basic-addon2 {
+    padding: 0px 8px;
+    font-size: 12px;
+  }
+  #basic-addon2.input-group-text {
+    cursor: pointer;
+  }
+
+  .homesection8-right-content p {
+    font-size: 16px;
+  }
+}

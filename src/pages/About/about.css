@@ -1,4 +1,4 @@
-.aboutSection .container {
+.aboutSection {
   padding: 3rem 0;
 }
 
@@ -16,10 +16,15 @@
   margin-bottom: 1rem;
 }
 
-.img-fluid {
+.aboutSection-right img {
   border-radius: 8px;
   max-width: 100%;
   height: auto;
+}
+
+.historySection {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .historySection h2 {
@@ -28,36 +33,33 @@
   margin-bottom: 2rem;
 }
 
-.lead {
+.historySection .lead {
   font-size: 1.25rem;
   font-weight: bolder;
   color: #edb932;
   margin-bottom: 2rem;
 }
 
-.timeline {
-  position: relative;
-  margin-top: 2rem;
-}
-
-.timeline-item {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 2rem;
+.historySection-timeline .timeline-item {
+  margin-bottom: 1.5rem;
   border-left: 2px solid #edb932;
+  padding-left: 1.5rem;
 }
 
-.timeline-item h5 {
+.historySection-timeline .timeline-item h5 {
   font-size: 1.5rem;
   font-weight: bold;
   color: #edb932;
 }
 
-.timeline-item p {
-  font-size: 1rem;
-  font-weight: 700;
+.historySection-timeline .timeline-item p {
+  font-size: 1.1rem;
   color: #1a1a1a;
-  margin-top: 0.5rem;
+}
+
+.offerSection {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .offerSection h2 {
@@ -66,49 +68,174 @@
   margin-bottom: 2rem;
 }
 
+.offerSection p.lead {
+  font-size: 1.25rem;
+  font-weight: bolder;
+  color: #edb932;
+  margin-bottom: 2rem;
+}
+
+.offerSection-card {
+  margin-bottom: 2rem;
+}
+
+.offerSection-card .card {
+  border: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+.offerSection-card .card img {
+  object-fit: contain;
+}
+
+.offerSection .card .card-body-body {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-body-body h5.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.card-body-body p.card-text {
+  font-size: 16px;
+  font-weight: bolder;
+  color: #6c6c6c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 15px;
+}
+
+.customerSection {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
 .customerSection h2 {
   color: #1a1a1a;
   font-size: 2.5rem;
   margin-bottom: 2rem;
 }
 
-.card {
+.customerSection-testimonial {
   margin-bottom: 2rem;
-  border: none;
 }
 
-.card-img-top {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.card-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.offerSection-card .card p.card-text {
-  font-size: 1rem;
-  color: #6c757d;
-}
-
-.testimonial {
-  background-color: #f8f9fa;
-  padding: 2rem;
+.customerSection-testimonial .testimonial {
+  background-color: #cadef3;
+  padding: 3rem;
   border-radius: 8px;
+  text-align: left;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
 }
 
-blockquote {
+.customerSection .testimonial blockquote {
+  font-size: 1.3rem;
   color: #6c6c6c;
+  font-style: italic;
   font-weight: bold;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
 
-cite {
-  font-size: 1rem;
+.customerSection-testimonial .testimonial cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.1rem;
   color: #edb932;
   font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .aboutSection-left h2 {
+    font-size: 2.3rem;
+  }
+
+  .aboutSection-left p {
+    font-size: 1.2rem;
+  }
+
+  .historySection h2,
+  .offerSection h2,
+  .customerSection h2 {
+    font-size: 2.3rem;
+  }
+
+  .historySection .lead {
+    font-size: 1.15rem;
+  }
+
+  .timeline-item h5 {
+    font-size: 1.4rem;
+  }
+
+  .offerSection .card-title {
+    font-size: 1.4rem;
+  }
+
+  .testimonial blockquote {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSection-left h2 {
+    font-size: 2rem;
+  }
+
+  .aboutSection-left p {
+    font-size: 1.1rem;
+  }
+
+  .historySection h2,
+  .offerSection h2,
+  .customerSection h2 {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+  }
+
+  .timeline-item h5 {
+    font-size: 1.3rem;
+  }
+
+  .offerSection .card-title {
+    font-size: 1.3rem;
+  }
+
+  .testimonial blockquote {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .aboutSection-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .aboutSection-left p {
+    font-size: 1rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  .timeline-item h5 {
+    font-size: 1.1rem;
+  }
+
+  .offerSection .card-title {
+    font-size: 1.2rem;
+  }
+
+  .testimonial blockquote {
+    font-size: 1rem;
+  }
 }

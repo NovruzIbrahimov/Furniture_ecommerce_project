@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "../Register/register.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import api from '../../config/axiosConfig';
+import api from "../../config/axiosConfig";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
@@ -16,18 +16,14 @@ function Register() {
   //-----------------------------------------------AXIOS POST METODU------------------------------------------
   const handleRegistration = async () => {
     try {
-      const response = await api.post(
-        "/site/register",
-        {
-          name: firstName,
-          surname: surname,
-          email: email,
-          password: password,
-        }
-      );
+      const response = await api.post("/site/register", {
+        name: firstName,
+        surname: surname,
+        email: email,
+        password: password,
+      });
       localStorage.setItem("token", "Bearer " + response.data.data.token);
       navigate("/");
-
     } catch (error) {
       setErrorMessage("Registration failed. Please try again.");
     }
@@ -41,7 +37,7 @@ function Register() {
 
   return (
     <div className="register template d-flex justify-content-center align-items-center vh-100">
-      <div className="form-container p-5 rounded bg-white">
+      <div className="col-10 col-sm-8 col-md-6 col-lg-4 form-container p-5 rounded bg-white">
         <form onSubmit={handleSubmit}>
           <h3 className="text-center">Qeydiyyat</h3>
           {errorMessage && (

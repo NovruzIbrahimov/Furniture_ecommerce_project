@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import "../SignIn/login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import api from '../../config/axiosConfig';
+import api from "../../config/axiosConfig";
 import { useNavigate } from "react-router-dom";
-import {message} from "antd";
+import { message } from "antd";
 
 function Login() {
   const navigate = useNavigate();
@@ -16,21 +16,17 @@ function Login() {
   //-------------------------------------------AXIOS POST METODU--------------------------------------------
   const handleLogin = async () => {
     try {
-      const response = await api.post(
-        "/login",
-        {
-          email: email,
-          password: password,
-        }
-      );
+      const response = await api.post("/login", {
+        email: email,
+        password: password,
+      });
 
-      if (response.data.data.user.role == "client")  {
+      if (response.data.data.user.role == "client") {
         localStorage.setItem("token", "Bearer " + response.data.data.token);
         localStorage.setItem("user", JSON.stringify(response.data));
         navigate("/");
-      }
-      else {
-        message.error('Sizin istifadəçi admin üçün nəzərdə tutulub.');
+      } else {
+        message.error("Sizin istifadəçi admin üçün nəzərdə tutulub.");
       }
     } catch (error) {
       setErrorMessage("Incorrect email or password. Please try again.");
@@ -45,13 +41,13 @@ function Login() {
 
   return (
     <div className="login template d-flex justify-content-center align-items-center vh-100">
-      <div className="form-container p-5 rounded bg-white">
+      <div className="col-10 col-sm-8 col-md-6 col-lg-4 form-container p-5 rounded bg-white">
         <form onSubmit={handleSubmit}>
           <h3 className="text-center">Daxil ol</h3>
           {errorMessage && (
             <div className="alert alert-danger">{errorMessage}</div>
           )}
-          <div className="mb-2">
+          <div className="mb-3">
             <label htmlFor="email">E-poçt</label>
             <input
               type="email"
@@ -61,7 +57,7 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="mb-2">
+          <div className="mb-3">
             <label htmlFor="password">Şifrə</label>
             <input
               type="password"
@@ -70,16 +66,6 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
-          <div className="mb-2">
-            <input
-              type="checkbox"
-              className="custom-control custom-checkbox"
-              id="check"
-            />
-            <label htmlFor="check" className="custom-input-label ms-2">
-              Xatırla
-            </label>
           </div>
           <div className="d-grid">
             <button type="submit" className="btn btn-one">

@@ -4,7 +4,7 @@ import React from "react";
 import "../../pages/About/about.css";
 import ImageIntro from "../../assets/furnitureIntro.jpg";
 import ImageDesign from "../../assets/customDesign.png";
-import ImageFast from "../../assets/fastD.png";
+import ImageFast from "../../assets/fastDe.png";
 import ImageCustom from "../../assets/customerSupport.png";
 
 function About() {
@@ -97,9 +97,9 @@ function About() {
                 className="card-img-top"
                 alt="Custom Design"
               />
-              <div className="card-body">
+              <div className="card-body-body">
                 <h5 className="card-title">Xüsusi Dizaynlar</h5>
-                <p className="card-text">{trimTitle(text, 50)}</p>
+                <p className="card-text">{trimTitle(text, 35)}</p>
               </div>
             </div>
           </div>
@@ -110,9 +110,9 @@ function About() {
                 className="card-img-top"
                 alt="Fast Delivery"
               />
-              <div className="card-body">
+              <div className="card-body-body">
                 <h5 className="card-title">Sürətli Çatdırılma</h5>
-                <p className="card-text">{trimTitle(text2, 50)}</p>
+                <p className="card-text">{trimTitle(text2, 35)}</p>
               </div>
             </div>
           </div>
@@ -123,9 +123,9 @@ function About() {
                 className="card-img-top"
                 alt="Customer Support"
               />
-              <div className="card-body">
+              <div className="card-body-body">
                 <h5 className="card-title">Müştəri dəstəyi</h5>
-                <p className="card-text">{trimTitle(text3, 50)}</p>
+                <p className="card-text">{trimTitle(text3, 35)}</p>
               </div>
             </div>
           </div>

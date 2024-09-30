@@ -16,7 +16,8 @@ import DashboardAdmins from "./pages/Admin/Dashboard/Admins/DashboardAdmins";
 import DashboardOrders from "./pages/Admin/Dashboard/Order/DashboardOrders";
 import DashboardMenu from "./pages/DashboardMenu";
 import Checkout from "./pages/Checkout/Checkout";
-import AdminLogin from "./pages/admin/AdminLogin/AdminLogin";
+import AdminLogin from "./pages/Admin/AdminLogin/AdminLogin"
+
 
 function App() {
   return (

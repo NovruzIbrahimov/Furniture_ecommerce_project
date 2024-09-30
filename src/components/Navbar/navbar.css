@@ -42,6 +42,7 @@
   margin: -5px 2px -5px 2px;
   cursor: pointer;
 }
+
 .Link {
   text-decoration: none;
   color: white;
@@ -58,6 +59,9 @@
   color: #6c6c6c;
   border-radius: 20px;
   transition: 0.5ms;
+}
+a.Link.link-register.active {
+  color: #6c6c6c;
 }
 .active {
   cursor: pointer;
@@ -96,10 +100,8 @@
   justify-content: center;
 }
 
-
 @media screen and (max-width: 1175px) {
   .Nav {
-    /* padding: 25px 0px 25px 20px; */
     align-items: center;
   }
   .NavElements {

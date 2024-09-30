@@ -171,20 +171,21 @@
 .modal {
   display: block;
   position: fixed;
-  top: 20%;
-  left: 20%;
+  top: 50%;
+  left: 50%;
   width: 60%;
-  height: 60%;
+  height: auto;
+  max-height: 80%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  padding: 10px;
+  z-index: 1000;
+  border-radius: 10px;
 }
 
 .modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
   padding: 20px;
-  border-radius: 5px;
+  position: relative;
 }
 
 .close {
@@ -193,4 +194,111 @@
   right: 15px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.right-detail span {
+  margin: 10px 10px 0 10px;
+}
+
+.modal-content h1,
+.modal-content h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.modal-content p {
+  font-size: 16px;
+  color: #6c6c6c;
+  line-height: 1.4;
+  height: calc(1.4em * 4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.modal-content .btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+
+@media (max-width: 1024px) {
+  .modal {
+    width: 70%;
+  }
+
+  .modal-content h1,
+  .modal-content h2 {
+    font-size: 18px;
+  }
+
+  .modal-content p {
+    font-size: 15px;
+    line-height: 1.3;
+    height: calc(1.3em * 4);
+  }
+
+  .modal-content .btn {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 80%;
+  }
+
+  .modal-content h1,
+  .modal-content h2 {
+    font-size: 16px;
+  }
+
+  .modal-content p {
+    font-size: 14px;
+    line-height: 1.3;
+    height: calc(1.3em * 4);
+  }
+  .modal-content img {
+    max-width: 80%;
+  }
+
+  .modal-content .btn {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .modal {
+    width: 73%;
+  }
+
+  .modal-content h1,
+  .modal-content h2 {
+    font-size: 14px;
+  }
+
+  .modal-content p {
+    font-size: 13px;
+    line-height: 1.2;
+    height: calc(1.2em * 4);
+  }
+
+  .modal-content img {
+    max-width: 70%;
+  }
+
+  .modal-content .btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }

@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, NavLink, useParams } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
-import api from '../config/axiosConfig';
+import api from "../config/axiosConfig";
 
 function HomeSection3() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -42,14 +42,15 @@ function HomeSection3() {
 
   const fetchData = async () => {
     try {
-      const response = await api.get("/site/products?page=1&perPage=4&minPrice=&maxPrice=&search=&stock=inStock");
+      const response = await api.get(
+        "/site/products?page=1&perPage=4&minPrice=&maxPrice=&search=&stock=inStock"
+      );
 
       setProducts(response.data.data.product);
 
       const brandsResponse = await api.get("/site/brands");
-      
+
       setBrandList(brandsResponse.data.data);
-      
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
@@ -80,7 +81,10 @@ function HomeSection3() {
       <div className="container mb-5">
         <div className="row">
           {products.map((products) => (
-            <div className="col-md-6 col-xl-3 col-lg-6 col-sm-12" key={products._id}>
+            <div
+              className="col-md-6 col-xl-3 col-lg-6 col-sm-12"
+              key={products._id}
+            >
               <div className="card shadow-lg">
                 <NavLink to={`/detail/${products._id}`}>
                   <img src={products.images[0].url} alt="" />
@@ -136,7 +140,7 @@ function HomeSection3() {
                             <p className="single-line1">
                               {products.description}
                             </p>
-                            <div className="d-flex  align-items-center">
+                            <div className="d-flex  align-items-center ">
                               <button className="btn " onClick={decrement}>
                                 -
                               </button>
@@ -147,7 +151,7 @@ function HomeSection3() {
                             </div>
                             <Link to={`/cart`}>
                               <button className="btn btn-one mt-3">
-                                Add to Cart
+                                Səbətə əlavə et
                               </button>
                             </Link>
                           </div>
@@ -157,7 +161,7 @@ function HomeSection3() {
                     <span className="close" onClick={closeModal}>
                       &times;
                     </span>
-                    <p></p>
+                    
                   </div>
                 </div>
               )}

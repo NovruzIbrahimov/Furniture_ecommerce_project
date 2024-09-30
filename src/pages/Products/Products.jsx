@@ -13,6 +13,7 @@ import { Pagination } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Products() {
+  const [quantity, setQuantity] = useState(1);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
@@ -32,7 +33,7 @@ function Products() {
 
   useEffect(() => {
     fetchData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     currentPage,
     searchQuery,
@@ -56,7 +57,6 @@ function Products() {
 
       const brandsResponse = await api.get("/site/brands");
       setBrandList(brandsResponse.data.data);
-
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
@@ -64,7 +64,7 @@ function Products() {
 
   useEffect(() => {
     filterProducts();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedBrands, products]);
 
   const handleFilter = () => {
@@ -140,6 +140,16 @@ function Products() {
     setModalOpen(false);
   };
 
+  const increment = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   const totalPages = Math.ceil(totalProducts / perPage);
 
   const handlePageChange = (page) => {
@@ -149,212 +159,219 @@ function Products() {
   return (
     <div className="products-section">
       <div className="container">
-          <>
-            <div className="products-top">
-              <div
-                className="products-top-left"
-                onClick={() => setSidebarOpen(true)}
-              >
-                <Link to="">
-                  <FaBars style={{ marginRight: "8px", fontSize: "16px" }} />
-                  SEÇİMLƏR
-                </Link>
-              </div>
-
-              {isSidebarOpen && (
-                <div className="sidebar-menu">
-                  <div className="close-icon">
-                    <Link
-                      to=""
-                      className="bars"
-                      onClick={() => setSidebarOpen(false)}
-                    >
-                      <BsX />
-                    </Link>
-                  </div>
-                  <div className="sidebar-top ">
-                    <InputGroup className="mb-3">
-                      <FormControl
-                        placeholder="Axtarış"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                      />
-                    </InputGroup>
-                  </div>
-                  <div className="sidebar-middle mt-5">
-                    <p>Qiymətə görə filtrləyin</p>
-                    <button onClick={handleFilter}>FİLTR</button>
-                    <div className="minMaxInputContainer">
-                      <label>
-                        Min:
-                        <input
-                          type="number"
-                          value={minPrice}
-                          onChange={(e) => setMinPrice(e.target.value)}
-                        />
-                      </label>
-
-                      <label>
-                        Max:
-                        <input
-                          type="number"
-                          value={maxPrice}
-                          onChange={(e) => setMaxPrice(e.target.value)}
-                        />
-                      </label>
-                    </div>
-                  </div>
-                  <div className="sidebar-middle-2 mt-4">
-                    <Form.Group controlId="stockFilter">
-                      <Form.Check
-                        type="checkbox"
-                        label="Stokda olan"
-                        checked={inStockFilter}
-                        onChange={() => setInStockFilter(!inStockFilter)}
-                      />
-                      <Form.Check
-                        type="checkbox"
-                        label="Stokda olmayan"
-                        checked={outOfStockFilter}
-                        onChange={() => setOutOfStockFilter(!outOfStockFilter)}
-                      />
-                    </Form.Group>
-                  </div>
-                  <div className="sidebar-bottom mt-4">
-                    <p>Məhsul kateqoriyaları</p>
-                    <Form.Group controlId="stockFilter">
-                      {brandList.map((brand) => (
-                        <Form.Check
-                          key={brand._id}
-                          type="checkbox"
-                          label={brand.name}
-                          checked={selectedBrands.includes(brand._id)}
-                          onChange={() => handleBrandFilter(brand._id)}
-                        />
-                      ))}
-                    </Form.Group>
-                  </div>
-                </div>
-              )}
-
-              <div className="products-top-right">
-                <Form.Group controlId="sortOptions">
-                  <Form.Label>Sırala:</Form.Label>
-                  <Form.Control
-                    as="select"
-                    value={selectedSort}
-                    onChange={(e) => handleSort(e.target.value)}
-                  >
-                    <option>A-dan Z-yə</option>
-                    <option>Z-dən A-ya</option>
-                    <option>Ucuzdan bahalıya</option>
-                    <option>Bahalıdan ucuza</option>
-                  </Form.Control>
-                </Form.Group>
-              </div>
+        <>
+          <div className="products-top">
+            <div
+              className="products-top-left"
+              onClick={() => setSidebarOpen(true)}
+            >
+              <Link to="">
+                <FaBars style={{ marginRight: "8px", fontSize: "16px" }} />
+                SEÇİMLƏR
+              </Link>
             </div>
 
-            <div className="row mt-5">
-              {filteredProducts.map((products) => (
-                <div className="col-lg-4 col-md-6 col-sm-12" key={products._id}>
-                  <div className="card shadow-lg">
-                    <NavLink to={`/detail/${products._id}`}>
-                      {products.images[0] && (
-                        <img src={products.images[0].url} alt="Product Image" />
-                      )}
-                    </NavLink>
+            {isSidebarOpen && (
+              <div className="sidebar-menu">
+                <div className="close-icon">
+                  <Link
+                    to=""
+                    className="bars"
+                    onClick={() => setSidebarOpen(false)}
+                  >
+                    <BsX />
+                  </Link>
+                </div>
+                <div className="sidebar-top ">
+                  <InputGroup className="mb-3">
+                    <FormControl
+                      placeholder="Axtarış"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </InputGroup>
+                </div>
+                <div className="sidebar-middle mt-5">
+                  <p>Qiymətə görə filtrləyin</p>
+                  <button onClick={handleFilter}>FİLTR</button>
+                  <div className="minMaxInputContainer">
+                    <label>
+                      Min:
+                      <input
+                        type="number"
+                        value={minPrice}
+                        onChange={(e) => setMinPrice(e.target.value)}
+                      />
+                    </label>
 
-                    <div className="card-body">
-                      <p>
-                        {brandList.length
-                          ? getBrandName(products.brandId)
-                          : "Loading..."}
-                      </p>
-                      <h2>{products.title}</h2>
-                      <h2>Stock: {products.stock}</h2>
-                      <span>{products.productPrice} AZN</span>
-                    </div>
+                    <label>
+                      Max:
+                      <input
+                        type="number"
+                        value={maxPrice}
+                        onChange={(e) => setMaxPrice(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                </div>
+                <div className="sidebar-middle-2 mt-4">
+                  <Form.Group controlId="stockFilter">
+                    <Form.Check
+                      type="checkbox"
+                      label="Stokda olan"
+                      checked={inStockFilter}
+                      onChange={() => setInStockFilter(!inStockFilter)}
+                    />
+                    <Form.Check
+                      type="checkbox"
+                      label="Stokda olmayan"
+                      checked={outOfStockFilter}
+                      onChange={() => setOutOfStockFilter(!outOfStockFilter)}
+                    />
+                  </Form.Group>
+                </div>
+                <div className="sidebar-bottom mt-4">
+                  <p>Məhsul kateqoriyaları</p>
+                  <Form.Group controlId="stockFilter">
+                    {brandList.map((brand) => (
+                      <Form.Check
+                        key={brand._id}
+                        type="checkbox"
+                        label={brand.name}
+                        checked={selectedBrands.includes(brand._id)}
+                        onChange={() => handleBrandFilter(brand._id)}
+                      />
+                    ))}
+                  </Form.Group>
+                </div>
+              </div>
+            )}
 
-                    <div className="icons-container">
-                      <div className="icon shopping-cart-icon">
-                        <i className="icons-icons">
-                          <FaShoppingCart />
-                        </i>
-                      </div>
-                      <div
-                        className="icon quick-view-icon"
-                        onClick={() => openModal(products._id)}
-                      >
-                        <i className="icons-icons">
-                          <FaRegEye />
-                        </i>
-                      </div>
-                    </div>
+            <div className="products-top-right">
+              <Form.Group controlId="sortOptions">
+                <Form.Label>Sırala:</Form.Label>
+                <Form.Control
+                  as="select"
+                  value={selectedSort}
+                  onChange={(e) => handleSort(e.target.value)}
+                >
+                  <option>A-dan Z-yə</option>
+                  <option>Z-dən A-ya</option>
+                  <option>Ucuzdan bahalıya</option>
+                  <option>Bahalıdan ucuza</option>
+                </Form.Control>
+              </Form.Group>
+            </div>
+          </div>
+
+          <div className="row mt-5">
+            {filteredProducts.map((products) => (
+              <div className="col-lg-4 col-md-6 col-sm-12" key={products._id}>
+                <div className="card shadow-lg">
+                  <NavLink to={`/detail/${products._id}`}>
+                    {products.images[0] && (
+                      <img src={products.images[0].url} alt="Product Image" />
+                    )}
+                  </NavLink>
+
+                  <div className="card-body">
+                    <p>
+                      {brandList.length
+                        ? getBrandName(products.brandId)
+                        : "Loading..."}
+                    </p>
+                    <h2>{products.title}</h2>
+                    <h2>Stock: {products.stock}</h2>
+                    <span>{products.productPrice} AZN</span>
                   </div>
 
-                  {isModalOpen && selectedProductId === products._id && (
-                    <div className="modal">
-                      <div className="modal-content">
-                        <div className="container">
-                          <div className="row">
-                            <div className="col-md-6 detail-left">
-                              <div className="left-detail">
-                                <img
-                                  src={products.images[0].url}
-                                  className="img-fluid"
-                                />
-                              </div>
+                  <div className="icons-container">
+                    <div className="icon shopping-cart-icon">
+                      <i className="icons-icons">
+                        <FaShoppingCart />
+                      </i>
+                    </div>
+                    <div
+                      className="icon quick-view-icon"
+                      onClick={() => openModal(products._id)}
+                    >
+                      <i className="icons-icons">
+                        <FaRegEye />
+                      </i>
+                    </div>
+                  </div>
+                </div>
+
+                {isModalOpen && selectedProductId === products._id && (
+                  <div className="modal">
+                    <div className="modal-content">
+                      <div className="container">
+                        <div className="row">
+                          <div className="col-md-6 detail-left">
+                            <div className="left-detail">
+                              <img
+                                src={products.images[0].url}
+                                className="img-fluid"
+                              />
                             </div>
-                            <div className="col-md-6">
-                              <div className="right-detail">
-                                <h1>{products.title}</h1>
-                                <h2>{products.productPrice} AZN</h2>
-                                <p className="single-line1">
-                                  {products.description}
-                                </p>
-                                <div className="d-flex  align-items-center"></div>
-                                <Link to={`/cart`}>
-                                  <button className="btn  mt-3">
-                                    Səbətə əlavə et
-                                  </button>
-                                </Link>
+                          </div>
+                          <div className="col-md-6">
+                            <div className="right-detail">
+                              <h1>{products.title}</h1>
+                              <h2>{products.productPrice} AZN</h2>
+                              <p className="single-line1">
+                                {products.description}
+                              </p>
+                              <div className="d-flex  align-items-center">
+                                <button className="btn " onClick={decrement}>
+                                  -
+                                </button>
+                                <span>{quantity}</span>
+                                <button className="btn " onClick={increment}>
+                                  +
+                                </button>
                               </div>
+                              <Link to={`/cart`}>
+                                <button className="btn btn-one  mt-3">
+                                  Səbətə əlavə et
+                                </button>
+                              </Link>
                             </div>
                           </div>
                         </div>
-                        <span className="close" onClick={closeModal}>
-                          &times;
-                        </span>
-                        <p></p>
                       </div>
+                      <span className="close" onClick={closeModal}>
+                        &times;
+                      </span>
                     </div>
-                  )}
-                </div>
-              ))}
-            </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
 
-            <div className="d-flex justify-content-center mt-3">
-              <Pagination>
-                <Pagination.Prev
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  disabled={currentPage === 1}
-                />
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <Pagination.Item
-                    key={i + 1}
-                    active={i + 1 === currentPage}
-                    onClick={() => handlePageChange(i + 1)}
-                  >
-                    {i + 1}
-                  </Pagination.Item>
-                ))}
-                <Pagination.Next
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  disabled={currentPage === totalPages}
-                />
-              </Pagination>
-            </div>
-          </>
+          <div className="d-flex justify-content-center mt-3">
+            <Pagination>
+              <Pagination.Prev
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+              />
+              {Array.from({ length: totalPages }, (_, i) => (
+                <Pagination.Item
+                  key={i + 1}
+                  active={i + 1 === currentPage}
+                  onClick={() => handlePageChange(i + 1)}
+                >
+                  {i + 1}
+                </Pagination.Item>
+              ))}
+              <Pagination.Next
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+              />
+            </Pagination>
+          </div>
+        </>
       </div>
     </div>
   );

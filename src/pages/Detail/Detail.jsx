@@ -39,7 +39,6 @@ function Detail() {
           navigate("/products");
           window.location.reload();
         });
-
     } catch (error) {
       if (error.response && error.response.status === 400) {
         message.error(error.message);
@@ -107,24 +106,23 @@ function Detail() {
   if (!products) {
     return (
       <div className="detail">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 detail-left">
-            <div className="left-detail">
-              <img className="img-fluid" />
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 detail-left">
+              <div className="left-detail">
+                <img className="img-fluid" />
+              </div>
             </div>
-          </div>
-          <div className="col-md-6">
-            <div className="right-detail">
-              <h1 className="loading-box"></h1>
-              <h2 className="loading-box"></h2>
-              <p className="loading-box"></p>
+            <div className="col-md-6">
+              <div className="right-detail">
+                <h1 className="loading-box"></h1>
+                <h2 className="loading-box"></h2>
+                <p className="loading-box"></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
-
     );
   }
 
@@ -199,7 +197,8 @@ function Detail() {
               <div className="review-content">
                 <h2>Be the first to review “Brown Living Room Sofa”</h2>
                 <p>
-                E-poçt ünvanınız dərc olunmayacaq. Tələb olunan sahələr qeyd olunub *
+                  E-poçt ünvanınız dərc olunmayacaq. Tələb olunan sahələr qeyd
+                  olunub *
                 </p>
                 <Form>
                   <Form.Group
@@ -220,15 +219,16 @@ function Detail() {
 
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>E-poçt</Form.Label>
-                    <Form.Control type="email" placeholder="E-poçtu daxil edin" />
+                    <Form.Control
+                      type="email"
+                      placeholder="E-poçtu daxil edin"
+                    />
                     <Form.Text className="text-muted">
-                    E-poçtunuzu heç vaxt başqası ilə paylaşmayacağıq.
+                      E-poçtunuzu heç vaxt başqası ilə paylaşmayacağıq.
                     </Form.Text>
                   </Form.Group>
 
-                  <Button  type="submit">
-                    Təqdim et
-                  </Button>
+                  <Button type="submit" className="btn-sub">Təqdim et</Button>
                 </Form>
               </div>
             </div>

@@ -88,7 +88,10 @@ function HomeSection5() {
       <div className="container mb-5">
         <div className="row">
           {products.map((products) => (
-            <div className="col-md-6 col-xl-3 col-lg-6 col-sm-12" key={products._id}>
+            <div
+              className="col-md-6 col-xl-3 col-lg-6 col-sm-12"
+              key={products._id}
+            >
               <div className="card shadow-lg">
                 <NavLink to={`/detail/${products._id}`}>
                   <img src={products.images[0].url} alt="" />
@@ -153,7 +156,7 @@ function HomeSection5() {
                             </div>
                             <Link to={`/cart`}>
                               <button className="btn btn-one mt-3">
-                                Add to Cart
+                                Səbətə əlavə et
                               </button>
                             </Link>
                           </div>
@@ -163,7 +166,7 @@ function HomeSection5() {
                     <span className="close" onClick={closeModal}>
                       &times;
                     </span>
-                    <p></p>
+                    
                   </div>
                 </div>
               )}

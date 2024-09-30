@@ -68,6 +68,13 @@
 .description-content h3 {
   color: #1a1a1a;
 }
+.btn-sub {
+  color: #fff;
+  background-color: #edb932;
+  border-color: #edb932;
+  padding: 10px 40px;
+}
+
 button#uncontrolled-tab-example-tab-review.nav-link {
   color: #1a1a1a;
   font-weight: bold;

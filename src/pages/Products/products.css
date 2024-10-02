@@ -16,6 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 .products-top-left a {
   font-size: 18px;
@@ -79,6 +80,134 @@ label.form-check-label:hover {
 select#sortOptions.form-control {
   box-shadow: none;
   outline: none;
+}
+
+/* For tablets (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sidebar-menu {
+    width: 300px; /* Adjusted sidebar width */
+    height: 100%; /* Full height */
+    overflow-y: auto; /* Scrollable if content exceeds height */
+    padding: 15px; /* Adjust padding */
+  }
+  .sidebar-middle p,
+  .sidebar-bottom p {
+    font-size: 22px; /* Reduced heading size */
+  }
+  .sidebar-middle button {
+    font-size: 12px;
+    padding: 8px 20px; /* Adjust button size */
+  }
+  .minMaxInputContainer input {
+    width: 100%; /* Ensure inputs take full width */
+  }
+  input#stockFilter.form-check-input {
+    font-size: 18px;
+    box-shadow: none;
+  }
+  label.form-check-label {
+    font-size: 20px;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+}
+
+/* For small screens (up to 768px) */
+@media (max-width: 768px) {
+  .sidebar-menu {
+    width: 300px; /* Adjusted sidebar width */
+    height: 100%; /* Full height */
+    overflow-y: auto; /* Scrollable if content exceeds height */
+    padding: 15px; /* Adjust padding */
+  }
+  .sidebar-middle p,
+  .sidebar-bottom p {
+    font-size: 20px; /* Reduced heading size */
+  }
+  .sidebar-middle button {
+    font-size: 12px;
+    padding: 6px 18px; /* Adjust button size */
+  }
+  .minMaxInputContainer input {
+    width: 100%; /* Ensure inputs take full width */
+  }
+  input#stockFilter.form-check-input {
+    font-size: 17px;
+    box-shadow: none;
+  }
+  label.form-check-label {
+    font-size: 19px;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+}
+
+/* For very small screens (up to 425px) */
+@media (max-width: 425px) {
+  .products-top {
+    flex-direction: row; /* Stack items vertically */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure it takes full width */
+    padding: 10px;
+    z-index: 1000; /* Ensure it's on top of other elements */
+  }
+
+  .products-top-left a {
+    font-size: 14px; /* Adjust font size */
+    padding: 8px 10px;
+    background-color: #edb932;
+    text-align: center;
+    display: block;
+    white-space: nowrap; /* Prevent text from breaking */
+  }
+
+  .products-top-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .products-top-right select {
+    width: auto; /* Auto width to fit content */
+    padding: 5px;
+    font-size: 12px; /* Adjust font size for better readability */
+    border: 1px solid #ced4da;
+  }
+
+  .products-top-right label {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  .sidebar-menu {
+    width: 250px; /* Adjusted sidebar width */
+    height: 100%; /* Full height */
+    overflow-y: auto; /* Scrollable if content exceeds height */
+    padding: 15px; /* Adjust padding */
+  }
+  .sidebar-middle p,
+  .sidebar-bottom p {
+    font-size: 16px; /* Reduced heading size */
+  }
+  .sidebar-middle button {
+    font-size: 10px;
+    padding: 4px 15px; /* Adjust button size */
+  }
+  .minMaxInputContainer input {
+    width: 100%; /* Ensure inputs take full width */
+  }
+  input#stockFilter.form-check-input {
+    font-size: 14px;
+    box-shadow: none;
+  }
+  label.form-check-label {
+    font-size: 16px;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: 0.3s;
+  }
 }
 
 .card {

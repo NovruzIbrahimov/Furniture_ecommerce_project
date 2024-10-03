@@ -69,11 +69,11 @@ p {
 
 @media (max-width: 393px) {
   .all-footer-second .footer-second-right p {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .all-footer-second .footer-second-right a {
-    font-size: 16px;
+    font-size: 14px;
     margin-left: 4px;
   }
 }
@@ -81,7 +81,7 @@ p {
 @media (max-width: 375px) {
   .all-footer-second h1,
   .all-footer-second p {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .all-footer-second p {

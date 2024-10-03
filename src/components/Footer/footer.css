@@ -67,6 +67,17 @@ p {
   background-color: #ffffff1a;
 }
 
+@media (max-width: 393px) {
+  .all-footer-second .footer-second-right p {
+    font-size: 16px;
+  }
+
+  .all-footer-second .footer-second-right a {
+    font-size: 16px;
+    margin-left: 4px;
+  }
+}
+
 @media (max-width: 375px) {
   .all-footer-second h1,
   .all-footer-second p {

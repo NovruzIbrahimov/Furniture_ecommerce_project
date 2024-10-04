@@ -1,8 +1,10 @@
 .homesection1 {
   padding: 30px 80px 30px 80px;
-  background-image: url("https://websitedemos.net/home-decor-04/wp-content/uploads/sites/644/2020/08/furniture-store-hero-bg.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+    url("https://websitedemos.net/home-decor-04/wp-content/uploads/sites/644/2020/08/furniture-store-hero-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 950px;
   width: 100%;
 }
@@ -26,19 +28,55 @@
   color: #fafafa;
   margin: 30px 0 60px 0;
 }
+
 .homesection-text a.Link {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #edb932 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Roboto", sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
   padding: 14px 38px 14px 38px;
+  position: relative;
+  text-align: left;
   text-decoration: none;
-  background-color: #edb932;
-  border: 1px solid #edb932;
-  color: #000000;
-  font-weight: bold;
-  transition: 0.5s;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
 }
+
+.homesection-text a.Link:focus {
+  box-shadow: #edb932 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
+}
+
 .homesection-text a.Link:hover {
-  background-color: #fafafa;
-  color: #000000;
-  border: 1px solid #fafafa;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.homesection-text a.Link:active {
+  box-shadow: #edb932 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 @media (max-width: 1200px) {

@@ -41,38 +41,156 @@
 }
 
 .btn-one {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #edb932 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
   color: #fff;
-  background-color: #edb932;
-  padding: 10px 40px;
-  border-color: #edb932;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Roboto", sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+}
+
+.btn-one:focus {
+  box-shadow: #edb932 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
 }
 
 .btn-one:hover {
-  color: #fff;
-  background-color: #edb932;
-  border-color: #edb932;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
+  transform: translateY(-2px);
 }
+
+.btn-one:active {
+  box-shadow: #edb932 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
 .btn-second {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #edb932 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
   color: #fff;
-  background-color: #edb932;
-  padding: 10px 40px;
-  border-color: #edb932;
-  margin-left: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Roboto", sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  margin-left: 5px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+}
+
+.btn-second:focus {
+  box-shadow: #edb932 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
 }
 
 .btn-second:hover {
-  color: #fff;
-  background-color: #edb932;
-  border-color: #edb932;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
+  transform: translateY(-2px);
 }
+
+.btn-second:active {
+  box-shadow: #edb932 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
 .description-content h3 {
   color: #1a1a1a;
 }
+
 .btn-sub {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #edb932 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
   color: #fff;
-  background-color: #edb932;
-  border-color: #edb932;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Roboto", sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
   padding: 10px 40px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+}
+
+.btn-sub:focus {
+  box-shadow: #edb932 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
+}
+
+.btn-sub:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.btn-sub:active {
+  box-shadow: #edb932 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 button#uncontrolled-tab-example-tab-review.nav-link {

@@ -18,16 +18,55 @@
   align-items: center;
   position: relative;
 }
+
 .products-top-left a {
-  font-size: 18px;
-  font-weight: bold;
-  color: #1a1a1a;
-  padding: 10px 25px;
-  background-color: #edb932;
-  transition: 0.3s;
-}
-.products-top-left a:hover {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #edb932 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
   color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Roboto", sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding: 10px 25px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+}
+
+.products-top-left a:focus {
+  box-shadow: #edb932 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
+}
+
+.products-top-left a:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.products-top-left a:active {
+  box-shadow: #edb932 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 .close-icon {
@@ -46,12 +85,55 @@ a.bars {
   color: #6c6c6c;
   font-weight: bold;
 }
+
 .sidebar-middle button {
-  padding: 10px 25px 10px 25px;
-  color: #1a1a1a;
-  background-color: #edb932;
-  border-color: #edb932;
-  font-weight: bold;
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #edb932 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Roboto", sans-serif;
+  height: 36px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding: 10px 25px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+}
+
+.sidebar-middle button:focus {
+  box-shadow: #edb932 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
+}
+
+.sidebar-middle button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #edb932 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.sidebar-middle button:active {
+  box-shadow: #edb932 0 3px 7px inset;
+  transform: translateY(2px);
 }
 .sidebar-bottom p {
   font-size: 30px;
@@ -185,10 +267,9 @@ select#sortOptions.form-control {
 
   .products-top-left a {
     font-size: 14px;
-    padding: 8px 10px;
+    padding: 8px 20px;
     background-color: #edb932;
     text-align: center;
-    display: block;
     white-space: nowrap;
   }
 

@@ -70,6 +70,7 @@ p {
 @media (max-width: 393px) {
   .all-footer-second .footer-second-right p {
     font-size: 14px;
+    margin-top: 10px;
   }
 
   .all-footer-second .footer-second-right a {

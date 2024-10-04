@@ -17,6 +17,7 @@ import DashboardOrders from "./pages/Admin/Dashboard/Order/DashboardOrders";
 import DashboardMenu from "./pages/DashboardMenu";
 import Checkout from "./pages/Checkout/Checkout";
 import AdminLogin from "./pages/Admin/AdminLogin/AdminLogin"
+import ScrollToTopButton from "./components/Scroll/ScrollToTopButton";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path="dashboard/dashboardAdmins" element={<DashboardMenu><DashboardAdmins /></DashboardMenu>} />
         <Route path="dashboard/dashboardOrders" element={<DashboardMenu><DashboardOrders /></DashboardMenu>} />
       </Routes>
+      <ScrollToTopButton />
     </div>
   );
 }

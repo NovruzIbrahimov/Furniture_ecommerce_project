@@ -86,7 +86,7 @@ function Footer() {
 
             <div className="col-lg-6 col-md-12 d-flex justify-content-lg-end justify-content-center footer-second-right">
               <p>
-                The site was created by{" "}
+                 Created by{" "}
                 <a
                   href="https://www.linkedin.com/in/novruz-ibrahimov-80a45a288/"
                   target="_blank"
